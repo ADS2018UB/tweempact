@@ -20,6 +20,6 @@ def balanced(df):
 		RT_l10 = np.mean(last10_tweets["retweet_count"])
 		FC_l10 = np.mean(last10_tweets["favorite_count"])
 		#take json user
-		j_user = subset[-1:]["user"][0]
-		
-	return 
+		j_user = subset[1:]["user"][0]
+		pd.DataFrame(j_user)
+	return subset
