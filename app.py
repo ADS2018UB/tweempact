@@ -54,7 +54,9 @@ def prediction_made():
 
 
 @app.route('/evolution')
+@login_required
 def historic():
+
 
     return render_template('dashboard/trial.html')
 
