@@ -60,5 +60,7 @@ def get_10tweets(username):
     out["sd_RT"]=sd_RT
     out["FC_l10"]=mean_FC_last10
     out["sd_FC"]=sd_FC
+    out = out.reset_index(drop=True)
+    
     return out# -*- coding: utf-8 -*-
 
