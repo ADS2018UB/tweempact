@@ -54,8 +54,8 @@ def prediction_made():
     df = pd.DataFrame()
     df = get_10tweets(current_user.username)
     
-    RT = df["RT_l10"]
-    FAV = df["FC_l10"]
+    RT = np.mean(df["RT_l10"])
+    FAV = np.mean(df["FC_l10"])
     #some response showing the number of RT/FAVS
     return render_template('prediction/aftermath.html',RT = RT, FAV = FAV)
 
