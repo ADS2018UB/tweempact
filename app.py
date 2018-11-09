@@ -14,6 +14,9 @@ from flask_login import login_required
 from models import User
 from forms import PredictionForm,LoginForm
 import tweepy
+from functions import get_10tweets
+import numpy as np
+import pandas as pd
 
 #This is the web main page 
 app = Flask(__name__)
@@ -48,9 +51,13 @@ def prediction_submit():
 @login_required
 def prediction_made():
     #It should be a button that send us back to prediction
+    df = pd.DataFrame()
+    df = get_10tweets(current_user.username)
     
+    RT = df["RT_l10"][0]
+    FAV = df["FC_l10"][0]
     #some response showing the number of RT/FAVS
-    return render_template('prediction/aftermath.html')
+    return render_template('prediction/aftermath.html',RT = RT, FAV = FAV)
 
 
 @app.route('/evolution')
