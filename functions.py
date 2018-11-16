@@ -1,9 +1,9 @@
 import pandas as pd
 import numpy as np
 import tweepy
+import time
 
-
-def get_10tweets(username):
+def get_10tweets(username, n_tweets = 10, dash = False):
     
     with open('consumer_key.txt', 'r') as f:
         consumer_key =  f.read()
@@ -48,19 +48,25 @@ def get_10tweets(username):
             
             if len(tweets_10) == 10:
                 break
-    
+
     out = pd.DataFrame()
     t = pd.DataFrame(tweets_10)
     
-    mean_FC_last10, sd_FC = np.mean(t["favorite_count"]), np.std(t["favorite_count"])
-    mean_RT_last10, sd_RT = np.mean(t["retweet_count"]), np.std(t["retweet_count"])
-    
-    out["j_user"]=t["user"][-1:]
-    out["RT_l10"]=mean_RT_last10
-    out["sd_RT"]=sd_RT
-    out["FC_l10"]=mean_FC_last10
-    out["sd_FC"]=sd_FC
-    out = out.reset_index(drop=True)
-    
-    return out# -*- coding: utf-8 -*-
+    if dash == False:
+        mean_FC_last10, sd_FC = np.mean(t["favorite_count"]), np.std(t["favorite_count"])
+        mean_RT_last10, sd_RT = np.mean(t["retweet_count"]), np.std(t["retweet_count"])
 
+        out["j_user"]=t["user"][-1:]
+        out["RT_l10"]=mean_RT_last10
+        out["sd_RT"]=sd_RT
+        out["FC_l10"]=mean_FC_last10
+        out["sd_FC"]=sd_FC
+        out = out.reset_index(drop=True)  
+        return out
+    
+    if dash:
+        t1 = t[["text", "favorite_count", "retweet_count"]]
+        CA = t["created_at"]
+        CA_l = [time.strftime('%Y-%m-%d %H:%M:%S', time.strptime(CA[i],'%a %b %d %H:%M:%S +0000 %Y'))for i in range(0,len(CA))]
+        t1["created_at"] = CA_l
+        return t1
