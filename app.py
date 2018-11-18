@@ -44,12 +44,13 @@ def prediction_submit():
   form = PredictionForm(request.form)
   if request.method == 'POST' and form.validate():
       #whatever we do with text etc
-      return redirect(url_for('prediction_made'))
+      text = form.text.data
+      return redirect(url_for('prediction_made',text=text))
   return render_template('prediction/submit.html', form=form)
 
-@app.route('/prediction/aftermath',methods = ['GET','POST'])
+@app.route('/prediction/aftermath/<text>',methods = ['GET','POST'])
 @login_required
-def prediction_made():
+def prediction_made(text):
     #It should be a button that send us back to prediction
     df = pd.DataFrame()
     df = get_10tweets(current_user.username)
@@ -57,7 +58,7 @@ def prediction_made():
     RT = df["RT_l10"][0]
     FAV = df["FC_l10"][0]
     #some response showing the number of RT/FAVS
-    return render_template('prediction/aftermath.html',RT = RT, FAV = FAV)
+    return render_template('prediction/aftermath.html',RT = RT, FAV = FAV,text=text)
 
 
 @app.route('/evolution')
