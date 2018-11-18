@@ -3,7 +3,12 @@
 {% block title %}Prediction result{% endblock title %}
 
 {% block main %}
-<h1> RT = Infty </h1>
-<h2> FAV = 0 </h2>
+<h1> RT = {{RT}} </h1>
+<h2> FAV = {{FAV}} </h2>
+<h3> Tweet: {{text}} </h3>
+<a class="twitter-share-button"
+ href="https://twitter.com/intent/tweet?text={{text}}" data-size="large">
+Tweet</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 {% endblock main %}
