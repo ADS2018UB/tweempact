@@ -28,12 +28,13 @@ def get_10tweets(username, n_tweets = 10, dash = False):
     api = tweepy.API(auth)
 
     tweets_10 = []
-    count = 10
+    MAX_ID = 9000000000000000000
+    aux = 0
     
-    while len(tweets_10) < 10:
+    while len(tweets_10) < n_tweets:
         
         try:
-            tweets = api.user_timeline(screen_name=username, count=count)
+            tweets = api.user_timeline(screen_name=username, count=count, max_id = MAX_ID)
         except tweepy.TweepError:
             return 0, tweets_10
         
@@ -44,10 +45,14 @@ def get_10tweets(username, n_tweets = 10, dash = False):
             if doc not in tweets_10 and not doc['text'].startswith('RT '):
                 tweets_10.append(doc)
             else:
-                count += 1
+                MAX_ID = doc['id]
             
-            if len(tweets_10) == 10:
+            if len(tweets_10) == n_tweets:
                 break
+        if aux > 20:
+            # Could only find less than n_tweets tweets in n_tweets*20 searched tweets.
+            return 2, tweets_10
+        aux += 1
 
     out = pd.DataFrame()
     t = pd.DataFrame(tweets_10)
