@@ -11,15 +11,17 @@ from flask import url_for
 from flask_login import LoginManager, current_user
 from flask_login import login_user, logout_user
 from flask_login import login_required
-from models import User
-from forms import PredictionForm,LoginForm
+from app.models import User
+from app.forms import PredictionForm,LoginForm
 import tweepy
-from functions import get_10tweets
-import pandas as pd
+from app.functions import get_10tweets
 import plotly.graph_objs as go
+import pandas as pd
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+#from werkzeug.wsgi import DispatcherMiddleware
+
 #This is the web main page 
 app = Flask(__name__)
 dash1 = dash.Dash(__name__, server=app, url_base_pathname='/dash')
@@ -52,6 +54,27 @@ dash1.layout = html.Div([
 
     dcc.Graph(id='indicator-graphic'),
     
+    #dcc.Input(
+    #'Maximum RT value',
+    #readonly = False,
+    #type = 'number',
+    #value= m_val
+    #),
+    
+   
+    
+        
+    #dcc.RadioItems(
+    #id = 'choose',
+    #options=[
+     #   {'label': 'Maximum RT', 'value': m_val},
+      #  {'label': 'Maximum FAV', 'value': m_val2},
+       # {'label': 'Mean RT', 'value': mean_rt},
+        #{'label': 'Mean FAV', 'value': mean_fav}
+    #],
+    #value= m_val
+    #),
+    #html.Div(id='output-choose'),
     dcc.RadioItems(
     id = 'show_more',
     options=[
@@ -152,7 +175,7 @@ def update_graph(yaxis_column_name
 #app.config['MONGO_URI'] = 'mongodb://localhost:27017/foodb'
 #mongo = PyMongo(app)
 
-
+#application = DispatcherMiddleware(app, {'/dash': dash1.server})
 
 
 @app.route('/')
@@ -162,8 +185,7 @@ def index():
 
 if __name__ == '__main__':
     app.run()
-    
-    
+       
     
 @app.route('/prediction', methods=['GET', 'POST'])
 @login_required
@@ -185,6 +207,7 @@ def prediction_made(text):
     
     RT = df["RT_l10"][0]
     FAV = df["FC_l10"][0]
+    #text = request.args.get('text') 
     #some response showing the number of RT/FAVS
     return render_template('prediction/aftermath.html',RT = RT, FAV = FAV,text=text)
 
@@ -192,9 +215,16 @@ def prediction_made(text):
 @app.route('/evolution')
 @login_required
 def historic():
-
-
-    return render_template('dashboard/trial.html')
+    global df,m_val,m_val2,df_m,df_m2,mean_rt,mean_fav
+    df = get_10tweets(current_user.username, dash=True)
+    m_val = df['retweet_count'].max()
+    m_val2 =df['favorite_count'].max() 
+    df_m = df.loc[df['retweet_count']==m_val]
+    df_m2 = df.loc[df['favorite_count']==m_val2]
+    mean_rt = df['retweet_count'].mean()
+    mean_fav = df['favorite_count'].mean()
+    
+    return redirect('/dash') 
 
 app.config['SECRET_KEY'] = 'esydM2ANhdcoKwdVa0jWvEsbPFuQpMjg' # Create your own.
 app.config['SESSION_PROTECTION'] = 'strong'
