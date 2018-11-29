@@ -26,7 +26,7 @@ import dash_html_components as html
 app = Flask(__name__)
 dash1 = dash.Dash(__name__, server=app, url_base_pathname='/dash')
 
-#dash1.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
+dash1.css.append_css({"external_url": "/static/css/dash.css"})
 
 df = pd.DataFrame()
    
@@ -53,28 +53,7 @@ dash1.layout = html.Div([
     ]),
 
     dcc.Graph(id='indicator-graphic'),
-    
-    #dcc.Input(
-    #'Maximum RT value',
-    #readonly = False,
-    #type = 'number',
-    #value= m_val
-    #),
-    
-   
-    
-        
-    #dcc.RadioItems(
-    #id = 'choose',
-    #options=[
-     #   {'label': 'Maximum RT', 'value': m_val},
-      #  {'label': 'Maximum FAV', 'value': m_val2},
-       # {'label': 'Mean RT', 'value': mean_rt},
-        #{'label': 'Mean FAV', 'value': mean_fav}
-    #],
-    #value= m_val
-    #),
-    #html.Div(id='output-choose'),
+
     dcc.RadioItems(
     id = 'show_more',
     options=[

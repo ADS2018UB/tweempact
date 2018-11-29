@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+h1 {
+	font-weight: bold;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	color: white	;
+	background-color: #326ada;
+/*	background-color: rgb(56,134,204);*/
+	padding: 15px;
+	padding-bottom: 20px;
+	width: 100%;
+	margin: 0;
+	box-shadow: inset 0px -1px 6px 0px rgb(38,95,146); 
+}
+
+.W {
+	height: 35px;
+	width: 40px;
+	margin-left: 3px;
+}
+
+#tweet-icon {
+	width: 57px;
+	height: 57px;
+    float: right;
+    margin-right: 50px;
+    margin-bottom: 0px;
+    filter: brightness(0) invert(1);
+}
+
+.login-state {
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	font-size: 14px;
+	color: black;
+	font-weight: bold;
+	background-color: #c0deed;
+	padding: 6px 6px 6px 20px;
+	height: 18px;
+	margin-bottom: 20px;
+	border-style: double none double none;
+}
+
+.controls {
+	text-align: center;
+}
+#login-box {
+	text-align: center;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	width: 280px;
+	margin: 0 auto;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	padding-bottom: 10px;
+	background-color: rgb(213,213,213);
+	border-style: double hidden;
+	border-color: rgb(122,122,122);
+	box-shadow: -2px 0 5px -2px rgb(213,213,213), 2px 0 5px -2px rgb(213,213,213);
+	margin-bottom: 30px;
+}
+
+.form-actions {
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	margin-top: 6px;
+}
+
+legend {
+	text-align: center;
+}
+
+#text {
+	width: 300px;
+	float: left;
+	margin-left: 50px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.control-label2 {
+	margin-left: 50px;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+#predict-button {
+	margin-top: 110px;
+}
+
+#login-error {
+	color: red;
+	text-align: center;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.top-bar {
+	text-decoration: none;
+}
+
+#info-tweempact{
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	text-align: center;
+	margin: auto;
+	width: 170px;
+}
+h3,h4 {
+	margin: 4px !important;
+}
+h3 {
+	font-size: 15px;
+	font-weight: normal;
+}
+h4 {
+	font-weight: bold;
+	font-size: 18px;
+/*	background-color: rgb(7,211,70); VERD*/
+/*	background-color: rgb(242,159,38); TARONJA*/
+	background-color: rgb(150,37,181);
+	color: white;
+	text-align: center;
+	padding: 7px;
+	border-radius: 7px;
+}
+.thumbs-up {
+	height: 20px;
+	width: 20px;
+	margin-left: 7px;
+}
