@@ -6,13 +6,13 @@ h1 {
 	font-weight: bold;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	color: white	;
-	background-color: #326ada;
+	background-color: #00aced;
 /*	background-color: rgb(56,134,204);*/
 	padding: 15px;
 	padding-bottom: 20px;
 	width: 100%;
 	margin: 0;
-	box-shadow: inset 0px -1px 6px 0px rgb(38,95,146); 
+/*	box-shadow: inset 0px -1px 6px 0px rgb(38,95,146); */
 }
 
 .W {
@@ -39,7 +39,6 @@ h1 {
 	padding: 6px 6px 6px 20px;
 	height: 18px;
 	margin-bottom: 20px;
-	border-style: double none double none;
 }
 
 .controls {
@@ -112,16 +111,19 @@ h3 {
 	font-size: 15px;
 	font-weight: normal;
 }
-h4 {
+h4.get-started {
 	font-weight: bold;
 	font-size: 18px;
 /*	background-color: rgb(7,211,70); VERD*/
 /*	background-color: rgb(242,159,38); TARONJA*/
-	background-color: rgb(150,37,181);
-	color: white;
+	background-color: #0084b4;
 	text-align: center;
 	padding: 7px;
 	border-radius: 7px;
+}
+a.get-started {
+	color: white;
+	text-decoration: none;
 }
 .thumbs-up {
 	height: 20px;

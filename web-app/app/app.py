@@ -165,6 +165,10 @@ def index():
 if __name__ == '__main__':
     app.run()
        
+
+@app.route('/faqs',methods = ['GET','POST'])
+def get_info():
+    return render_template('faqs.html')
     
 @app.route('/prediction', methods=['GET', 'POST'])
 @login_required

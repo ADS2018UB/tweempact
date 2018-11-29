@@ -34,6 +34,8 @@
 </div>
 <div id="info-tweempact">
   <h3>New in Tweempact?</h3>
-  <h4>GET STARTED!<img src="{{ url_for('static', filename='images/thumbs_up.png') }}" class = thumbs-up></h4>
+  <h4 class = get-started> 
+      <a class =get-started href="{{ url_for('get_info') }}">GET STARTED!<img src="{{ url_for('static', filename='images/thumbs_up.png') }}" class = thumbs-up> </a>
+  </h4>
 </div>
 {% endblock main %}
