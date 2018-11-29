@@ -20,6 +20,8 @@ import plotly.graph_objs as go
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+import os
+
 #This is the web main page 
 app = Flask(__name__)
 dash1 = dash.Dash(__name__, server=app, url_base_pathname='/dash')
@@ -223,27 +225,11 @@ def login():
   if request.method == 'POST' and form.validate():
     username = form.username.data.lower().strip()
     #password = form.password.data.lower().strip()
-    # user = username
-    with open('consumer_key.txt', 'r') as f:
-        consumer_key =  f.read()
-    f.closed
-    
-    with open('consumer_secret.txt', 'r') as f:
-        consumer_secret = f.read()
-    f.closed
-    
-    with open('access_key.txt', 'r') as f:
-        access_key = f.read()
-    f.closed
-    
-    with open('access_secret.txt', 'r') as f:
-         access_secret = f.read()
-    f.closed
-    
+    # user = username   
     
     #Authentication
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_key, access_secret)
+    auth = tweepy.OAuthHandler(os.environ['consumer_key'],os.environ['consumer_secret'])
+    auth.set_access_token(os.environ['access_key'], os.environ['access_secret'])
     api = tweepy.API(auth)
 
     try:

@@ -2,29 +2,13 @@ import pandas as pd
 import numpy as np
 import tweepy
 import time
+import os
 
 def get_10tweets(username, n_tweets = 10, dash = False):
-    
-    with open('consumer_key.txt', 'r') as f:
-        consumer_key =  f.read()
-    f.closed
-    
-    with open('consumer_secret.txt', 'r') as f:
-        consumer_secret = f.read()
-    f.closed
-    
-    with open('access_key.txt', 'r') as f:
-        access_key = f.read()
-    f.closed
-    
-    with open('access_secret.txt', 'r') as f:
-         access_secret = f.read()
-    f.closed
-    
-    
+      
     #Authentication
-    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-    auth.set_access_token(access_key, access_secret)
+    auth = tweepy.OAuthHandler(os.environ['consumer_key'], os.environ['consumer_secret'])
+    auth.set_access_token(os.environ['access_key'],os.environ['access_secret'])
     api = tweepy.API(auth)
 
     tweets_10 = []
