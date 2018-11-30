@@ -188,11 +188,21 @@ def prediction_made(text):
     df = pd.DataFrame()
     df = get_10tweets(current_user.username)
     
-    RT = df["RT_l10"][0]
-    FAV = df["FC_l10"][0]
+    RT_mean = df["RT_l10"][0]
+    FAV_mean = df["FC_l10"][0]
+
+    if(RT_mean > RT_mean):
+        RT_text = 'prediction over average'
+    else:
+        RT_text = 'prediction under average'
+    if(FAV_mean > FAV_mean):
+        FAV_text = 'prediction over average'
+    else:
+        FAV_text = 'prediction under average'   
+
     #text = request.args.get('text') 
     #some response showing the number of RT/FAVS
-    return render_template('prediction/aftermath.html',RT = RT, FAV = FAV,text=text)
+    return render_template('prediction/aftermath.html',RT = RT_mean, FAV = FAV_mean,text=text, RTaa = RT_text, FAVaa = FAV_text)
 
 
 @app.route('/evolution')

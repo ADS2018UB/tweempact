@@ -6,7 +6,7 @@ h1 {
 	font-weight: bold;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	color: white	;
-	background-color: #00aced;
+	background-color: rgb(56,134,204);
 /*	background-color: rgb(56,134,204);*/
 	padding: 15px;
 	padding-bottom: 20px;
@@ -67,24 +67,13 @@ legend {
 	text-align: center;
 }
 
-#text {
+/*#text {
 	width: 300px;
 	float: left;
 	margin-left: 50px;
 	margin-top: 10px;
 	margin-right: 10px;
-}
-
-.control-label2 {
-	margin-left: 50px;
-	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-	font-weight: bold;
-	padding-bottom: 10px;
-}
-
-#predict-button {
-	margin-top: 110px;
-}
+}*/
 
 #login-error {
 	color: red;
@@ -129,4 +118,95 @@ a.get-started {
 	height: 20px;
 	width: 20px;
 	margin-left: 7px;
+}
+
+.control-label2 {
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	font-weight: bold;
+	margin-left: 28px;
+}
+
+#text {
+	width: 305px;
+	height: 150px;
+	margin-top: 10px;
+}
+
+#predict-button {
+	margin-left: 41%;
+	margin-right: 41%;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	margin-top: 8px;
+}
+
+.column{
+	float: left;
+	width: 33.33%
+}
+
+.row:after {
+	content:"";
+	display: table;
+	clear:both;
+}
+
+h2.pred {
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	text-align: center;
+}
+
+.L {
+	width: 20px;
+	height: 18px;
+	margin-right: 3px;
+}
+
+.RT {
+	width: 32px;
+	height: 20px;
+	margin-right: 4px;
+}
+
+.Prediction {
+	background-color: rgb(210,210,210);
+	width: 180px;
+	margin: auto;
+	padding: 4px 0 4px 0;
+}
+
+.twitter-share-button {
+	margin-left: 505px;
+}
+
+#tweet-it {
+	text-align: center;
+	background-color: rgb(27,149,224);
+	width: 85px;
+	margin: auto;
+	margin-bottom: 20px;
+	border-radius: 4px;
+	padding: 8px 3px 8px 3px;
+	color: white;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	vertical-align: top;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#predicted-tweet {
+	text-align: center;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+}
+
+.twitter-bird {
+    filter: brightness(0) invert(1);
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+    margin-bottom: -2.1%;
+}
+
+a {
+	text-decoration: none;
+	color: white;
 }
