@@ -24,7 +24,7 @@ import os
 
 #This is the web main page 
 app = Flask(__name__)
-dash1 = dash.Dash(__name__, server=app, url_base_pathname='/dash')
+dash1 = dash.Dash(__name__, server=app, url_base_pathname='https://tweempact.herokuapp.com/dash')
 
 #dash1.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 
