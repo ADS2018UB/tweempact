@@ -14,7 +14,7 @@ def get_10tweets(username, n_tweets = 10, dash = False):
     tweets_10 = []
     MAX_ID = 9000000000000000000
     aux = 0
-    
+    count = 10
     while len(tweets_10) < n_tweets:
         
         try:
@@ -29,7 +29,7 @@ def get_10tweets(username, n_tweets = 10, dash = False):
             if doc not in tweets_10 and not doc['text'].startswith('RT '):
                 tweets_10.append(doc)
             else:
-                MAX_ID = doc['id]
+                MAX_ID = doc['id']
             
             if len(tweets_10) == n_tweets:
                 break
