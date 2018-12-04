@@ -64,14 +64,6 @@ legend {
 	text-align: center;
 }
 
-/*#text {
-	width: 300px;
-	float: left;
-	margin-left: 50px;
-	margin-top: 10px;
-	margin-right: 10px;
-}*/
-
 #login-error {
 	color: red;
 	text-align: center;
@@ -107,6 +99,13 @@ h4.get-started {
 	padding: 7px;
 	border-radius: 7px;
 }
+h4.get-started:hover {
+	background-color: rgb(29, 202, 255);
+}
+a.get-started:hover {
+	background-color: rgb(29, 202, 255);
+}
+
 a.get-started {
 	color: white;
 	text-decoration: none;
@@ -120,7 +119,8 @@ a.get-started {
 .control-label2 {
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	font-weight: bold;
-	margin-left: 28px;
+	color: black;
+	margin-left: 102px;
 }
 
 #text {
@@ -171,9 +171,6 @@ h2.pred {
 	padding: 4px 0 4px 0;
 }
 
-.twitter-share-button {
-	margin-left: 505px;
-}
 
 #tweet-it {
 	text-align: center;
@@ -183,11 +180,15 @@ h2.pred {
 	margin-bottom: 20px;
 	border-radius: 4px;
 	padding: 8px 3px 8px 3px;
-	color: white;
+	color: white !important;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	vertical-align: top;
 	font-size: 14px;
 	font-weight: bold;
+}
+
+#tweet-it:hover {
+	background:  rgb(29, 202, 255)	;
 }
 
 #predicted-tweet {
@@ -203,7 +204,20 @@ h2.pred {
     margin-bottom: -2.1%;
 }
 
-a {
-	text-decoration: none;
+a.tweet-it {
 	color: white;
+	text-decoration: none;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	background-color: rgb(190,190,190); 
+}
+
+a.tweet-it:hover {
+	background-color:  rgb(29, 202, 255);
 }
