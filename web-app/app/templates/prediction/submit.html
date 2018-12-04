@@ -13,7 +13,7 @@
       <form method="post" class="form-horizontal">
       <legend class="span5">{{ box }}</legend>
       {{ edit_field(form.text, rows = "6", class = "span5", placeholder="Prediction text.") }}
-      <button id = "predict-button" type="submit" class"btn>Predict</button>
+      <button id = "predict-button" type="submit" class"btn>Predict<img class = "eyes" src="{{ url_for('static', filename='images/eyes.png') }}"></button>
       </form>
     </div>
     <div class = "column">

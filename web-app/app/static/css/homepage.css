@@ -1,7 +1,11 @@
 body {
     margin: 0;
     padding: 0;
+	background-image: url("../images/prova.png");
+    background-color: rgba(255,255,255,0.7);
+    background-blend-mode: lighten;
 }
+
 h1 {
 	font-weight: bold;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
@@ -104,6 +108,7 @@ h4.get-started:hover {
 }
 a.get-started:hover {
 	background-color: rgb(29, 202, 255);
+	text-decoration: none;
 }
 
 a.get-started {
@@ -111,8 +116,8 @@ a.get-started {
 	text-decoration: none;
 }
 .thumbs-up {
-	height: 20px;
-	width: 20px;
+	height: 18px;
+	width: 18px;
 	margin-left: 7px;
 }
 
@@ -120,25 +125,34 @@ a.get-started {
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	font-weight: bold;
 	color: black;
-	margin-left: 102px;
+/*	margin-left: 102px;*/
+	width: 20px;
+	margin:auto;
 }
 
 #text {
-	width: 305px;
+	width: 290px;
 	height: 150px;
-	margin-top: 10px;
+	padding: 5px;
+	border-color: black;
+	border-width: 3px;
+	background-color: rgb(240,240,240);
+	box-shadow: 5px 5px 0px 5px white, -5px -10px 0px 5px white;
 }
 
 #predict-button {
-	margin-left: 41%;
-	margin-right: 41%;
+	width: 16%;
+	margin-left: 42%;
+	margin-right: 42%;
+	padding: 2px;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	margin-top: 8px;
+	font-weight: bold;
 }
 
 .column{
 	float: left;
-	width: 33.33%
+	width: 33.33%;
 }
 
 .row:after {
@@ -185,6 +199,7 @@ h2.pred {
 	vertical-align: top;
 	font-size: 14px;
 	font-weight: bold;
+	overflow: hidden;
 }
 
 #tweet-it:hover {
@@ -215,9 +230,58 @@ a {
 }
 
 a:hover {
-	background-color: rgb(190,190,190); 
+	text-decoration: underline; 
 }
 
 a.tweet-it:hover {
 	background-color:  rgb(29, 202, 255);
+	text-decoration: none;
+}
+
+.control-group {
+	margin:0;
+}
+
+/*#put-here {
+	text-align: center;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	border-style: solid;
+	width: 200px;
+	margin: auto;
+	margin-bottom: 15px;
+}*/
+
+.eyes {
+	width: 18px;
+	height: 18px;
+	float: right;
+}
+
+#put-here {
+	position: relative;
+	background: rgb(29, 202, 255);
+	border-radius: .4em;
+	text-align: center;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	width: 220px;
+	margin: auto;
+	margin-bottom: 15px;
+	color: black;
+	font-weight: bold;
+	padding: 10px;
+	letter-spacing: 0.5px;
+}
+
+#put-here:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 12px solid transparent;
+	border-top-color: rgb(29, 202, 255);
+	border-bottom: 0;
+	margin-left: -12px;
+	margin-bottom: -12px;
 }
