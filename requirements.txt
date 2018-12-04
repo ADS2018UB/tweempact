@@ -11,3 +11,4 @@ Dash_Html_Components
 pandas
 numpy
 Plotly
+Dash-Renderer
