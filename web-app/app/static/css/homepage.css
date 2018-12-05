@@ -18,9 +18,19 @@ h1 {
 /*	box-shadow: inset 0px -1px 6px 0px rgb(38,95,146); */
 }
 
+p,h2 {
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+}
+
 .W {
 	height: 35px;
 	width: 40px;
+	margin-left: 3px;
+}
+
+.W2 {
+	height: 25px;
+	width: 30px;
 	margin-left: 3px;
 }
 
@@ -88,6 +98,7 @@ legend {
 }
 h3,h4 {
 	margin: 4px !important;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 }
 h3 {
 	font-size: 15px;
@@ -338,4 +349,16 @@ i {
 	height: 11px;
 	float: right;
 	margin-top: 4px;
+}
+
+.column50 {
+	float: left;
+	width: 50%;
+	padding: 0 40px 0 40px;
+}
+
+.row50:after {
+	content: "";
+	display: table;
+	clear: both;
 }
