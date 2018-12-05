@@ -12,26 +12,22 @@
     <div class="navbar-inner">
     <div class="container">
       {% if current_user.is_authenticated %}
-      <div class="login-state" style="clear:both">
-        <p id="current-user" style="float: left;margin: 0;">Welcome {{ current_user.username }}!</p>
-        <p style="float:left;margin:0;margin-left: 100px"> <a class=top-bar href="{{ url_for('prediction_submit') }}">Predict</a></p>
-        <p style="float:left;margin:0;margin-left: 125px"> <a class=top-bar href="{{ url_for('historic') }}"> Historical evolution</a></p>
-        <p style="float:left;margin:0;margin-left: 120px"> <a class=top-bar href="{{ url_for('get_info') }}">About us</a></p>
-      </div>
-<!--       <a href="{{ url_for('prediction_submit') }}" class="brand">Prediction Box</a>
-      
-      <ul class="nav">
-              <li><a href="{{ url_for('historic') }}">Historical evolution</a></li>
-            </ul> -->
-            
-       <ul class="nav pull-right">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ current_user.username }} <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="{{ url_for('logout') }}">Logout</a></li>
-                </ul>
-              </li>
-            </ul>
+        <div class="login-state row2" style="clear:both">
+          <div class = "dropdown column2">
+            <button class="dropbtn">Welcome {{ current_user.username }}!</button>
+            <div class="dropdown-content">
+              <a href = "{{ url_for('logout') }}">Logout<img class = "logout" src="{{ url_for('static', filename='images/logout.png') }}"></a>
+            </div>
+            <i class="arrow down"></i>
+          </div>
+          <div class = "column2">
+            <p style="float:left;margin:0;margin-left: 120px"> <a class=top-bar href="{{ url_for('prediction_submit') }}">Predict</a></p>
+            <p style="float:left;margin:0;margin-left: 120px"> <a class=top-bar href="{{ url_for('historic') }}"> Historical evolution</a></p>
+            <p style="float:left;margin:0;margin-left: 120px"> <a class=top-bar href="{{ url_for('get_info') }}">About us</a></p>
+          </div>
+        </div>
+<!--         <p id="current-user" style="float: left;margin: 0;">Welcome {{ current_user.username }}!</p> -->
+        </div>
             {% else %}
             <ul class="nav pull-right">
               <li><a href="{{ url_for('login') }}">Login</a></li>
