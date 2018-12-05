@@ -5,18 +5,19 @@
 {% block title %}Main Page{% endblock title %}
 
 {% block main %}
-<div class="row">
-  <div class="prediction-submit well offset2 span8">
-  <form method="post" class="form-horizontal">
-    <legend>{{ box }}</legend>
-    {{ edit_field(form.text, rows = '6', class="span5",
-      placeholder="Prediction text.") }}
-      
-    <div class="form-actions">
-    <button type="submit" class="btn">Predict</button>
-    
+  <div class = "row">
+    <div class = "column">
+      <h4>Hi</h4>
     </div>
-  </form>
+    <div class = "column" id="prediction-div">
+      <form method="post" class="form-horizontal">
+      <legend class="span5">{{ box }}</legend>
+      {{ edit_field(form.text, rows = "6", class = "span5", placeholder="Prediction text.") }}
+      <button id = "predict-button" type="submit" class"btn>Predict<img class = "eyes" src="{{ url_for('static', filename='images/eyes.png') }}"></button>
+      </form>
+    </div>
+    <div class = "column">
+      <h4>Hi</h4>
+    </div>
   </div>
-</div>
 {% endblock main %}

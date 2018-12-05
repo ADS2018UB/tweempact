@@ -9,7 +9,7 @@
 </div>
 <div>
 	<p id="predicted-tweet">Tweet: {{text}} </p>
-	<p class = "tweet-it" id="tweet-it"><img class = "twitter-bird" src="{{ url_for('static', filename='images/twitter-logo.png') }}"><a class = "tweet-it" href="https://twitter.com/intent/tweet?text={{text}}">Tweet it!</a></p>
+	<p class = "tweet-it" id="tweet-it"><img class = "twitter-bird" src="{{ url_for('static', filename='images/twitter-logo.png') }}"><a class = "tweet-it" href="https://twitter.com/intent/tweet?text={{text}}&url=https://tweempact.herokuapp.com">Tweet it!</a></p>
 </div>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 

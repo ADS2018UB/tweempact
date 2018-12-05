@@ -5,10 +5,5 @@ WTForms
 Flask-PyMongo
 tweepy
 gunicorn
-Dash
-Dash_Core_Components
-Dash_Html_Components
 pandas
 numpy
-Plotly
-Dash-Renderer
