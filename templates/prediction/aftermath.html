@@ -3,12 +3,15 @@
 {% block title %}Prediction result{% endblock title %}
 
 {% block main %}
-<h1> RT = {{RT}} </h1>
-<h2> FAV = {{FAV}} </h2>
-<h3> Tweet: {{text}} </h3>
-<a class="twitter-share-button"
- href="https://twitter.com/intent/tweet?text={{text}}" data-size="large">
-Tweet</a>
+<div class="Prediction">
+	<h2 class = "pred"><img src="{{ url_for('static', filename='images/ReT.png') }}" class="RT">RT = {{RT}}</h2>
+	<h2 class = "pred"><img src="{{ url_for('static', filename='images/Like.png') }}" class="L">FAV = {{FAV}}</h2>
+</div>
+<div>
+	<p id="predicted-tweet">Tweet: {{text}} </p>
+	<p class = "tweet-it" id="tweet-it"><img class = "twitter-bird" src="{{ url_for('static', filename='images/twitter-logo.png') }}"><a class = "tweet-it" href="https://twitter.com/intent/tweet?text={{text}}&url=https://tweempact.herokuapp.com">Tweet it!</a></p>
+</div>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 {% endblock main %}
