@@ -100,10 +100,6 @@ h3,h4 {
 	margin: 4px !important;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 }
-h3 {
-	font-size: 15px;
-	font-weight: normal;
-}
 h4.get-started {
 	font-weight: bold;
 	font-size: 18px;
@@ -355,7 +351,7 @@ i {
 	float: left;
 	width: 40%;
 	margin: 30px 60px;
-	background-color: red;
+	background-color: rgba(148,199,224,0.85);
 	padding: 0 15px;
 }
 
@@ -363,4 +359,38 @@ i {
 	content: "";
 	display: table;
 	clear: both;
+}
+
+.column50p {
+	float: left;
+	width: 30%;
+	margin: 8px 57px;
+	background-color: #c0deed;
+	padding: 10px 2px;
+	border-radius: 45px;
+}
+
+.row50p:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+img.star {
+	height: 50px;
+	width: 50px;
+	display: block;
+	margin: 7px auto 7px auto;
+}
+img.graph {
+	height: 50px;
+	width: 70px;
+	display: block;
+	margin: 7px auto 7px auto;
+}
+
+.feature {
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	text-align: center;
+	margin: auto;
 }
