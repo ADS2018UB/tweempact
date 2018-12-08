@@ -4,11 +4,20 @@
 
 {% block main %}
 <div class="Prediction">
-	<h2 class = "pred"><img src="{{ url_for('static', filename='images/ReT.png') }}" class="RT">RT = {{RT}}</h2>
-	<h2 class = "pred"><img src="{{ url_for('static', filename='images/Like.png') }}" class="L">FAV = {{FAV}}</h2>
+	{% if rt_bool %}
+	<dialog open class="GJ">{{RTaa}}<img src="{{ url_for('static', filename='images/thumbs_up.png') }}" class = "thumbs-up"></dialog>
+	{% endif %}
+	<h2 class = "pred" id="pred2"><img src="{{ url_for('static', filename='images/ReT.png') }}" class="RT">{{RT}}</h2>
+	{% if fv_bool %}
+	<dialog open>{{FAVaa}}<img src="{{ url_for('static', filename='images/thumbs_up.png') }}" class = "thumbs-up"></dialog>
+	{% endif %}
+	<h2 class = "pred"><img src="{{ url_for('static', filename='images/Like.png') }}" class="L">{{FAV}}</h2>
 </div>
 <div>
-	<p id="predicted-tweet">Tweet: {{text}} </p>
+	<div class="predicted-tweet">
+		<p class="predicted-tweet"><strong>Your tweet:</strong></p>
+		<p class="predicted-tweet"> {{text}} </p>
+	</div>
 	<p class = "tweet-it" id="tweet-it"><img class = "twitter-bird" src="{{ url_for('static', filename='images/twitter-logo.png') }}"><a class = "tweet-it" href="https://twitter.com/intent/tweet?text={{text}}&url=https://tweempact.herokuapp.com">Tweet it!</a></p>
 </div>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
