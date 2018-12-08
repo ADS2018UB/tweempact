@@ -18,7 +18,7 @@ h1 {
 /*	box-shadow: inset 0px -1px 6px 0px rgb(38,95,146); */
 }
 
-p,h2 {
+p,h2,strong {
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 }
 
@@ -393,4 +393,26 @@ img.graph {
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	text-align: center;
 	margin: auto;
+}
+
+.column3 {
+	float: left;
+	width: 	28%;
+	margin: 2px 5px 20px 5px;
+	background-color: #c0deed;
+	padding: 7px 2px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.row3:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#learning {
+	font-size: 20px;
+	height: 53.6px;
+	margin:0;
 }
