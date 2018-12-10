@@ -16,6 +16,7 @@ from forms import PredictionForm,LoginForm
 import tweepy
 from functions import get_10tweets
 import pandas as pd
+import re 
 #import plotly.graph_objs as go
 #import dash
 #import dash_core_components as dcc
@@ -68,10 +69,16 @@ def prediction_made(text):
         FAV_text = 'prediction over average'
     else:
         FAV_text = 'prediction under average'
-
+    has = ''
+    for m in re.finditer(r"#\w+", text): 
+        w = m.group(0)
+        w = w.strip('#') 
+        has+= w
+        has+= ','
+            
     # text = request.args.get('text')
     # some response showing the number of RT/FAVS
-    return render_template('prediction/aftermath.html', RT=RT_mean, FAV=FAV_mean, text=text, RTaa=RT_text, FAVaa=FAV_text)
+    return render_template('prediction/aftermath.html', RT=RT_mean, FAV=FAV_mean, text=text, RTaa=RT_text, FAVaa=FAV_text,hashtags = has)
 
 
 
