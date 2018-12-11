@@ -49,7 +49,7 @@ p,h2,strong {
 	color: black;
 	font-weight: bold;
 	background-color: #c0deed;
-	padding: 6px 6px 6px 20px;
+	padding: 6px 6px 6px 65px;
 	height: 18px;
 	margin-bottom: 20px;
 }
@@ -67,6 +67,17 @@ p,h2,strong {
 	border-color: rgb(122,122,122);
 	box-shadow: -2px 0 5px -2px rgb(213,213,213), 2px 0 5px -2px rgb(213,213,213);
 	margin: 90px auto 30px;
+}
+#login-box2 {
+	text-align: center;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	width: 100px;
+	padding: 10px;
+	background-color: rgb(213,213,213);
+	border-style: double hidden;
+	border-color: rgb(122,122,122);
+	box-shadow: -2px 0 5px -2px rgb(213,213,213), 2px 0 5px -2px rgb(213,213,213);
+	margin: auto;
 }
 
 .form-actions {
@@ -473,6 +484,7 @@ dialog:after {
 	float: left;
 	width: 40%;
 	margin: 20px 60px 0px 60px;
+	background-color: yellow;
 	background-color: rgb(56,134,204);
 	padding: 4px 15px;
 	height: auto;
@@ -480,6 +492,9 @@ dialog:after {
 
 h2.about-us {
 	text-align: center;
-	margin: auto;
-	color: white;
+	margin: 0px auto;
+	color: black;
+/*	background-image: url("../images/reclutamiento (1).png");
+	background-position: center;*/
+	width: 300px;
 }

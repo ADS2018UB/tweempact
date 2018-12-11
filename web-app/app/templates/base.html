@@ -8,10 +8,8 @@
 </head>
 
 <body>
-    <div class="navbar navbar-static-top">
-    <div class="navbar-inner">
+    {% if current_user.is_authenticated %}
     <div class="container">
-      {% if current_user.is_authenticated %}
         <div class="login-state row2" style="clear:both">
           <div class = "dropdown column2">
             <button class="dropbtn">Welcome {{ current_user.username }}!</button>
@@ -27,12 +25,20 @@
           </div>
         </div>
 <!--         <p id="current-user" style="float: left;margin: 0;">Welcome {{ current_user.username }}!</p> -->
-        </div>
-            {% endif %}
-
     </div>
-   </div>
-  </div>
+    {% else %}
+    <div class="container">
+      <div class="login-state row2" style="clear:both">
+        <div class = "dropdown column2">
+          <a href="{{ url_for('login') }}">Login</a>
+        </div>
+        <div class = "column2">
+          <p style="float:left;margin:0;margin-left: 120px"> <a class=top-bar href="{{ url_for('get_info') }}">About us</a></p>
+        </div>
+      </div>   
+      {% endif %}
+
+
   <div class="content container">
     {% block main %}{% endblock main %}
   </div>
