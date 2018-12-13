@@ -18,7 +18,7 @@ h1 {
 /*	box-shadow: inset 0px -1px 6px 0px rgb(38,95,146); */
 }
 
-p,h2,strong {
+p,h2,strong,ul {
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 }
 
@@ -497,4 +497,11 @@ h2.about-us {
 /*	background-image: url("../images/reclutamiento (1).png");
 	background-position: center;*/
 	width: 300px;
+}
+
+#login-ph {
+	height: 100px;
+	width: 240px;
+	display: block;
+	margin: auto;
 }
