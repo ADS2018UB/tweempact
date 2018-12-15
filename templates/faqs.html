@@ -3,10 +3,85 @@
 {% block title %}FAQS{% endblock title %}
 
 {% block main %}
- <div>
- 	<h2>hi</h2>
- </div>
-
-
-
+<div class="row50">
+	<div class="column501">
+		<h2 class="about-us">For personal use</h2>
+<!-- 		<h2 class="about-us">T<img src="{{ url_for('static', filename='images/W2.png') }}" class = W2>eempact for personal use</h2> -->
+	</div>
+	<div class="column501">
+		<h2 class="about-us">For entertainment</h2>
+	</div>
+</div>
+<div class = "row50">
+	<div class="column50">
+ 		<p style="font-size: 17px;text-align: justify">Tweempact is aimed to those Twitter users <strong>worried about the impact of a tweet before publishing it</strong>. We allow you to anticipate future and <strong>maximize your social impact</strong> on Twitter!</p>
+ 		<div>
+ 			<h3 style="font-weight: bold;font-size: 18px;">Our functionalities:</h3>
+ 			<div class = "row50p">	
+ 				<div class="column50p">
+ 					<img class = "star" src="{{ url_for('static', filename='images/star (1).png') }}" >
+ 					<p style="font-weight: bold;font-size: 20px;" class="feature">Impact prediction</p>
+ 					<p class="feature">Anticipate the future!</p>
+ 				</div>
+ 				<div class = "column50p">
+ 					<img class = "graph" src="{{ url_for('static', filename='images/graph.jpg') }}" >
+ 					<p style="font-weight: bold;font-size: 20px;" class="feature">Historical evoution</p>
+ 					<p class="feature">of your tweets</p>
+ 				</div>
+ 			</div>
+ 			<div>
+ 				<h3>Wondering what's behind Tweempact?</h3>
+ 				<p>The process works as follow:</p>
+ 				<div class="row3">
+ 					<div class="column3">
+ 						<p>Past data</p>
+ 					</div>
+					<div class="arrow-right column3" style="
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 10px 0 10px 12px;
+					padding: 0px;
+					background-color: rgba(148,199,224,0.0); 
+					border-color: transparent transparent transparent #c0deed;
+					margin-left: 10px;
+					margin-top:26px;">
+					</div>
+ 					<div class="column3">
+ 						<p id = "learning" style="font-weight: bold;">LEARNING PROCESS</p>
+ 					</div>
+					<div class="arrow-right column3" style="
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 10px 0 10px 12px;
+					padding: 0px;
+					background-color: rgba(148,199,224,0.0); 
+					border-color: transparent transparent transparent #c0deed;
+					margin-left: 10px;
+					margin-top:26px;">
+					</div>
+ 					<div class="column3">
+ 						<p>Predict future</p>
+ 					</div>
+				</div>
+				<div class="action-call">
+					<h4><a class="action-call" href="{{ url_for('login') }}">What are you waiting for? LOGIN NOW!</a></h4>
+				</div>
+			</div>
+ 		</div>
+ 	</div>
+ 	<div class = "column50">
+ 		<p>Have you ever wanted to feel like your favourite influencer?</p>
+ 		<ul>1. Login as him!</ul>
+ 		<img id = "login-ph" src="{{ url_for('static', filename='images/login.png') }}">
+ 		<ul class = "list">2. Write what you would like him to say.</ul>
+ 		<ul class="list">3. <strong>Predict</strong>! And see the results!</ul>
+ 		<div class="Prediction" style="margin-top: 20px">
+			<h2 class = "pred" id="pred2"><img src="{{ url_for('static', filename='images/ReT.png') }}" class="RT">1,221</h2>
+			<h2 class = "pred"><img src="{{ url_for('static', filename='images/Like.png') }}" class="L">5,132</h2>
+		</div>
+		<p class = "tweet-it" id="tweet-it" style="margin-top: 10px;"><img class = "twitter-bird" src="{{ url_for('static', filename='images/twitter-logo.png') }}">Tweet it!</p>
+ 	</div>
+</div>
 {% endblock main %}
