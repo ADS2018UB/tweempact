@@ -75,10 +75,15 @@ def prediction_made(text):
         w = w.strip('#') 
         has+= w
         has+= ','
-    has = has[:-1]        
+    has = has[:-1]    
+    no_has = ''
+    for m in re.finditer(r"\s\w+", text):
+        w = m.group(0)
+        no_has+= w
+           
     # text = request.args.get('text')
     # some response showing the number of RT/FAVS
-    return render_template('prediction/aftermath.html', RT=RT_mean, FAV=FAV_mean, text=text, RTaa=RT_text, FAVaa=FAV_text,has = has)
+    return render_template('prediction/aftermath.html', RT=RT_mean, FAV=FAV_mean, text=text, RTaa=RT_text, FAVaa=FAV_text,has = has,nohas = no_has)
 
 
 
