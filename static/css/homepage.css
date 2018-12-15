@@ -18,10 +18,20 @@ h1 {
 /*	box-shadow: inset 0px -1px 6px 0px rgb(38,95,146); */
 }
 
+p,h2,strong,ul {
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+}
+
 .W {
 	height: 35px;
 	width: 40px;
 	margin-left: 3px;
+}
+
+.W2 {
+	height: 25px;
+	width: 30px;
+	margin-left: 4px;
 }
 
 #tweet-icon {
@@ -39,7 +49,7 @@ h1 {
 	color: black;
 	font-weight: bold;
 	background-color: #c0deed;
-	padding: 6px 6px 6px 20px;
+	padding: 6px 6px 6px 65px;
 	height: 18px;
 	margin-bottom: 20px;
 }
@@ -50,13 +60,24 @@ h1 {
 #login-box {
 	text-align: center;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-	width: 280px;
-	padding-bottom: 10px;
+	width: 230px;
+	padding: 10px;
 	background-color: rgb(213,213,213);
 	border-style: double hidden;
 	border-color: rgb(122,122,122);
 	box-shadow: -2px 0 5px -2px rgb(213,213,213), 2px 0 5px -2px rgb(213,213,213);
-	margin: 0 auto 30px;
+	margin: 90px auto 30px;
+}
+#login-box2 {
+	text-align: center;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	width: 100px;
+	padding: 10px;
+	background-color: rgb(213,213,213);
+	border-style: double hidden;
+	border-color: rgb(122,122,122);
+	box-shadow: -2px 0 5px -2px rgb(213,213,213), 2px 0 5px -2px rgb(213,213,213);
+	margin: auto;
 }
 
 .form-actions {
@@ -88,10 +109,7 @@ legend {
 }
 h3,h4 {
 	margin: 4px !important;
-}
-h3 {
-	font-size: 15px;
-	font-weight: normal;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 }
 h4.get-started {
 	font-weight: bold;
@@ -119,6 +137,7 @@ a.get-started {
 	height: 18px;
 	width: 18px;
 	margin-left: 7px;
+	margin-bottom: -1px;
 }
 
 .control-label2 {
@@ -135,9 +154,8 @@ a.get-started {
 	height: 150px;
 	padding: 5px;
 	border-color: black;
-	border-width: 3px;
+	border-width: 1.5px;
 	background-color: rgb(240,240,240);
-	box-shadow: 5px 5px 0px 5px white, -5px -10px 0px 5px white;
 }
 
 #predict-button {
@@ -166,6 +184,10 @@ h2.pred {
 	text-align: center;
 }
 
+.GJ {
+	margin-top: 16px;
+}
+
 .L {
 	width: 20px;
 	height: 18px;
@@ -173,16 +195,16 @@ h2.pred {
 }
 
 .RT {
-	width: 32px;
+	width: 33px;
 	height: 20px;
 	margin-right: 4px;
 }
 
 .Prediction {
 	background-color: rgb(210,210,210);
-	width: 180px;
-	margin: auto;
-	padding: 4px 0 4px 0;
+	width: 130px;
+	margin: 80px auto auto auto;
+	border-style: double;
 }
 
 
@@ -206,9 +228,15 @@ h2.pred {
 	background:  rgb(29, 202, 255)	;
 }
 
-#predicted-tweet {
+.predicted-tweet {
 	text-align: center;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	font-size: 16px;
+	max-width: 300px;
+	margin: 20px auto 20px auto;
+}
+p.predicted-tweet{
+	margin:0;
 }
 
 .twitter-bird {
@@ -250,14 +278,13 @@ a.tweet-it:hover {
 
 #put-here {
 	position: relative;
-	background: rgb(29, 202, 255);
+	background: rgb(56,134,204);
 	border-radius: .4em;
 	text-align: center;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	width: 220px;
-	margin: auto;
-	margin-bottom: 15px;
-	color: black;
+	margin: 40px auto 15px auto;
+	color: white;
 	font-weight: bold;
 	padding: 10px;
 	letter-spacing: 0.5px;
@@ -271,7 +298,7 @@ a.tweet-it:hover {
 	width: 0;
 	height: 0;
 	border: 12px solid transparent;
-	border-top-color: rgb(29, 202, 255);
+	border-top-color: rgb(56,134,204);
 	border-bottom: 0;
 	margin-left: -12px;
 	margin-bottom: -12px;
@@ -338,4 +365,147 @@ i {
 	height: 11px;
 	float: right;
 	margin-top: 4px;
+}
+
+.column50 {
+	float: left;
+	width: 40%;
+	margin: 0px 60px;
+	background-color: rgba(148,199,224,0.85);
+	padding: 0 15px;
+	min-height: 520px;
+}
+
+.row50:after {	
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.column50p {
+	float: left;
+	width: 30%;
+	margin: 11px 57px 22px 57px;
+	background-color: #c0deed;
+	padding: 10px 2px;
+	border-radius: 45px;
+}
+
+.row50p:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+img.star {
+	height: 50px;
+	width: 50px;
+	display: block;
+	margin: 7px auto 7px auto;
+}
+img.graph {
+	height: 50px;
+	width: 70px;
+	display: block;
+	margin: 7px auto 7px auto;
+}
+
+.feature {
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	text-align: center;
+	margin: auto;
+}
+
+.column3 {
+	float: left;
+	width: 	28%;
+	margin: 2px 5px 20px 5px;
+	background-color: #c0deed;
+	padding: 7px 2px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.row3:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#learning {
+	font-size: 20px;
+	height: 53.6px;
+	margin:0;
+}
+
+div.action-call{
+	text-align: center;
+	width: 320px;
+	margin:auto;
+	background: rgb(56,134,204);
+	padding:3px;
+	border-radius: 5px;
+}
+
+a.action-call{
+	color: white;
+	text-decoration: none;
+}
+
+div.action-call:hover {
+	background-color: rgb(29, 202, 255);
+}
+
+dialog {
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	margin: 0px 0px 0px 880px;
+	padding: 8px;
+	background: limegreen;	
+	border: 0;
+	color: white;
+	font-weight: bold;
+}
+
+dialog:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 18px solid transparent;
+	border-right-color: limegreen;
+	border-left: 0;
+	margin-top: -18px;
+	margin-left: -18px;
+}
+
+.column501 {
+	float: left;
+	width: 40%;
+	margin: 20px 60px 0px 60px;
+	background-color: yellow;
+	background-color: rgb(56,134,204);
+	padding: 4px 15px;
+	height: auto;
+}
+
+h2.about-us {
+	text-align: center;
+	margin: 0px auto;
+	color: black;
+/*	background-image: url("../images/reclutamiento (1).png");
+	background-position: center;*/
+	width: 300px;
+}
+
+#login-ph {
+	height: 100px;
+	width: 240px;
+	display: block;
+	margin: auto;
+}
+
+.list {
+	margin-top: 30px;
 }
