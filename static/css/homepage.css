@@ -61,7 +61,7 @@ p,h2,strong,ul {
 	text-align: center;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	width: 230px;
-	padding: 10px;
+	padding: 15px;
 	background-color: rgb(213,213,213);
 	border-style: double hidden;
 	border-color: rgb(122,122,122);
@@ -370,7 +370,7 @@ i {
 .column50 {
 	float: left;
 	width: 40%;
-	margin: 0px 60px;
+	margin: 0px 40px;
 	background-color: rgba(148,199,224,0.85);
 	padding: 0 15px;
 	min-height: 520px;
@@ -385,10 +385,10 @@ i {
 .column50p {
 	float: left;
 	width: 30%;
-	margin: 11px 57px 22px 57px;
+	margin: 11px 37px 22px 37px;
 	background-color: #c0deed;
 	padding: 10px 2px;
-	border-radius: 45px;
+	border-radius: 35px;
 }
 
 .row50p:after {
@@ -418,8 +418,8 @@ img.graph {
 
 .column3 {
 	float: left;
-	width: 	28%;
-	margin: 2px 5px 20px 5px;
+	width: 	23%;
+	margin: 2px 5px 10px 5px;
 	background-color: #c0deed;
 	padding: 7px 2px;
 	text-align: center;
@@ -458,7 +458,7 @@ div.action-call:hover {
 
 dialog {
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-	margin: 0px 0px 0px 880px;
+	margin: 0px 0px 0px 60%;
 	padding: 8px;
 	background: limegreen;	
 	border: 0;
@@ -483,7 +483,7 @@ dialog:after {
 .column501 {
 	float: left;
 	width: 40%;
-	margin: 20px 60px 0px 60px;
+	margin: 20px 40px 0px 40px;
 	background-color: yellow;
 	background-color: rgb(56,134,204);
 	padding: 4px 15px;
@@ -496,7 +496,7 @@ h2.about-us {
 	color: black;
 /*	background-image: url("../images/reclutamiento (1).png");
 	background-position: center;*/
-	width: 300px;
+	width: 40%;
 }
 
 #login-ph {
