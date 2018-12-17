@@ -16,5 +16,5 @@ class LoginForm(Form):
 
     Authentication (i.e. password verification) happens in the view function.
     """
-    username = TextField('Username', [required()])
+    username = TextField('Twitter username', [required()])
     password = PasswordField('Password')
