@@ -3,6 +3,36 @@ import numpy as np
 import tweepy
 import time
 
+def get_TT():
+    
+    TT = []
+    
+    with open('consumer_key.txt', 'r') as f:
+        consumer_key =  f.read()
+    f.closed
+    
+    with open('consumer_secret.txt', 'r') as f:
+        consumer_secret = f.read()
+    f.closed
+    
+    with open('access_key.txt', 'r') as f:
+        access_key = f.read()
+    f.closed
+    
+    with open('access_secret.txt', 'r') as f:
+         access_secret = f.read()
+    f.closed
+    
+    #Authentication
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_key, access_secret)
+    api = tweepy.API(auth)
+    results = api.trends_place(23424950)
+    for location in results:
+        for trend in location["trends"]:
+            TT.append(trend["name"])
+    return TT
+
 def get_10tweets(username, n_tweets = 10, dash = False):
     
     with open('consumer_key.txt', 'r') as f:

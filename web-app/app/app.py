@@ -14,7 +14,7 @@ from flask_login import login_required
 from app.models import User
 from app.forms import PredictionForm, LoginForm
 import tweepy
-from app.functions import get_10tweets
+from app.functions import get_10tweets , get_TT
 import plotly.graph_objs as go
 import pandas as pd
 import dash
@@ -32,7 +32,7 @@ dash1.css.append_css({"external_url": "/static/css/dash.css"})
 dash1.css.append_css({"external_url": "/static/css/homepage.css"})
 dash1.scripts.append_script({'external_url': '/static/js/insert_header.js'})
 
-# df = pd.DataFrame()
+#df = pd.DataFrame()
 
 df = get_10tweets('ramonmir94', dash=True)
 
@@ -180,12 +180,13 @@ def get_info():
 @login_required
 def prediction_submit():
     """Provide HTML form to submit a prediction."""
+    Trending = get_TT()
     form = PredictionForm(request.form)
     if request.method == 'POST' and form.validate():
         # whatever we do with text etc
         text = form.text.data
         return redirect(url_for('prediction_made', text=text))
-    return render_template('prediction/submit.html', form=form)
+    return render_template('prediction/submit.html', form=form, TT = Trending)
 
 
 @app.route('/prediction/aftermath/<text>', methods=['GET', 'POST'])

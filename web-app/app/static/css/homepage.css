@@ -61,12 +61,12 @@ p,h2,strong,ul {
 	text-align: center;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	width: 230px;
-	padding: 10px;
+	padding: 20px;
 	background-color: rgb(213,213,213);
 	border-style: double hidden;
 	border-color: rgb(122,122,122);
 	box-shadow: -2px 0 5px -2px rgb(213,213,213), 2px 0 5px -2px rgb(213,213,213);
-	margin: 90px auto 30px;
+	margin: 70px auto 30px;
 }
 #login-box2 {
 	text-align: center;
@@ -166,6 +166,18 @@ a.get-started {
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	margin-top: 8px;
 	font-weight: bold;
+}
+
+.trending-topics {
+    margin-top: 10px;
+    text-align: left;
+    color: black;
+    font-weight: bold;
+    
+}
+h4.trend{
+    color: rgb(22,222,255);
+    padding: 5px;
 }
 
 .column{
@@ -369,11 +381,23 @@ i {
 
 .column50 {
 	float: left;
+	width: 50%;
+}
+
+/*.column501 {
+	float: left;
 	width: 40%;
-	margin: 0px 60px;
-	background-color: rgba(148,199,224,0.85);
-	padding: 0 15px;
-	min-height: 520px;
+	margin: 20px 60px 0px 60px;
+	background-color: yellow;
+	background-color: rgb(56,134,204);
+	padding: 4px 15px;
+	height: auto;
+}*/
+
+.content1 {
+	width: 90%;
+	margin: auto;
+	background-color: rgb(56,134,204);
 }
 
 .row50:after {	
@@ -382,19 +406,12 @@ i {
 	clear: both;
 }
 
-.column50p {
-	float: left;
-	width: 30%;
-	margin: 11px 57px 22px 57px;
+.small {
 	background-color: #c0deed;
-	padding: 10px 2px;
+	width: 62%;
+	margin: 5px auto 20px auto;
 	border-radius: 45px;
-}
-
-.row50p:after {
-	content: "";
-	display: table;
-	clear: both;
+	padding: 10px 2px;
 }
 
 img.star {
@@ -416,7 +433,7 @@ img.graph {
 	margin: auto;
 }
 
-.column3 {
+/*.column3 {
 	float: left;
 	width: 	28%;
 	margin: 2px 5px 20px 5px;
@@ -424,24 +441,41 @@ img.graph {
 	padding: 7px 2px;
 	text-align: center;
 	font-size: 16px;
+}*/
+.dia {
+	background-color: #c0deed;
+	padding: 6px 2px;
+	text-align: center;
+	font-size: 16px;
+	width: 80%;
+	margin: auto;
 }
 
-.row3:after {
+.column3 {
+	width: 30%;
+	float: left;
+}
+.column5 {
+	width: 5%;
+	float: left;
+}
+
+.row5:after {
 	content: "";
 	display: table;
 	clear: both;
 }
 
-#learning {
+.learning {
 	font-size: 20px;
-	height: 53.6px;
-	margin:0;
+	font-weight: bold;
+	padding: 0;
 }
 
 div.action-call{
 	text-align: center;
 	width: 320px;
-	margin:auto;
+	margin: 23px auto 5px auto;
 	background: rgb(56,134,204);
 	padding:3px;
 	border-radius: 5px;
@@ -480,16 +514,6 @@ dialog:after {
 	margin-left: -18px;
 }
 
-.column501 {
-	float: left;
-	width: 40%;
-	margin: 20px 60px 0px 60px;
-	background-color: yellow;
-	background-color: rgb(56,134,204);
-	padding: 4px 15px;
-	height: auto;
-}
-
 h2.about-us {
 	text-align: center;
 	margin: 0px auto;
@@ -497,6 +521,12 @@ h2.about-us {
 /*	background-image: url("../images/reclutamiento (1).png");
 	background-position: center;*/
 	width: 300px;
+}
+
+.body1 {
+	background-color: rgba(148,199,244,0.85);
+	padding: 10px;
+	min-height: 500px;
 }
 
 #login-ph {
@@ -507,5 +537,5 @@ h2.about-us {
 }
 
 .list {
-	margin-top: 30px;
+	margin-top: 27px;
 }

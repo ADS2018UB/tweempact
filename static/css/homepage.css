@@ -61,7 +61,7 @@ p,h2,strong,ul {
 	text-align: center;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	width: 230px;
-	padding: 10px;
+	padding: 15px;
 	background-color: rgb(213,213,213);
 	border-style: double hidden;
 	border-color: rgb(122,122,122);
@@ -167,6 +167,19 @@ a.get-started {
 	margin-top: 8px;
 	font-weight: bold;
 }
+
+.trending-topics {
+    margin-top: 10px;
+    text-align: left;
+    color: black;
+    font-weight: bold;
+    
+}
+h4.trend{
+    color: rgb(22,222,255);
+    padding: 5px;
+}
+
 
 .column{
 	float: left;
@@ -418,7 +431,7 @@ img.graph {
 
 .column3 {
 	float: left;
-	width: 	24%;
+	width: 	23%;
 	margin: 2px 5px 10px 5px;
 	background-color: #c0deed;
 	padding: 7px 2px;
@@ -458,7 +471,7 @@ div.action-call:hover {
 
 dialog {
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-	margin: 0px 0px 0px 880px;
+	margin: 0px 0px 0px 60%;
 	padding: 8px;
 	background: limegreen;	
 	border: 0;
