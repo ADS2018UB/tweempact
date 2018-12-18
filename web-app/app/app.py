@@ -186,7 +186,13 @@ def prediction_submit():
         # whatever we do with text etc
         text = form.text.data
         return redirect(url_for('prediction_made', text=text))
-    return render_template('prediction/submit.html', form=form, TT = Trending)
+    TT_nohas = []
+    for i in range(0,10):
+        if("#" in Trending[i]):
+           TT_nohas.append(Trending[i].strip('#'))
+        else:
+            TT_nohas.append(Trending[i])
+    return render_template('prediction/submit.html', form=form, TT = Trending, TTno = TT_nohas)
 
 
 @app.route('/prediction/aftermath/<text>', methods=['GET', 'POST'])
