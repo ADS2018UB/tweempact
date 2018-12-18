@@ -14,7 +14,7 @@ from flask_login import login_required
 from app.models import User
 from app.forms import PredictionForm, LoginForm
 import tweepy
-from app.functions import get_10tweets , get_TT
+from app.functions import get_10tweets , get_TT, get_plot_images
 import plotly.graph_objs as go
 import pandas as pd
 import dash
@@ -237,7 +237,7 @@ def historic():
     text_fav = df_m2['text'].any()
     
     #here we need to do the graph also
-    #get_plot_images(current_user.username)
+    get_plot_images(current_user.username)
     
     return render_template('dashboard/trial.html',max_rt = m_val,max_fav = m_val2, mean_rt = mean_rt,
                            mean_fav = mean_fav, text_rt = text_rt, text_fav = text_fav)
