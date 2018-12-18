@@ -11,11 +11,11 @@
 				<h2 class="about-us">Title 1</h2>
 			</div>
 		 	<div class="body1 about-us">
-		 		<img class = "graph" src="{{ url_for('static', filename='images/RTplot.png') }}" >		
+		 		<img class = "graph-big" src="{{ url_for('static', filename='images/RTplot.png') }}" >		
 	 			<p class="about-graph"> This is some motherfucking text </p> 
-	 			<p class="about-graph"> Your mean {{mean_rt}}</p> 
-	 			<p class="about-graph"> Your best tweet {{max_rt}} </p> 
-	 			<p class="top tweet"> This is your best tweet mtfkr {{text_rt} </p>
+	 			<p class="about-graph"> Your mean is {{mean_rt}}RT</p> 
+	 			<p class="about-graph"> Your best tweet has accounted for {{max_rt}}RT </p> 
+	 			<p class="top tweet"> This is your best tweet mtfkr {{text_rt}} </p>
 	 		</div>
         </div>
     </div>
@@ -26,10 +26,10 @@
 				<h2 class="about-us">Title 2</h2>
 			</div>
 		 	<div class="body1 about-us">
-		 		<img class = "graph" src="{{ url_for('static', filename='images/FCplot.png') }}" >		
+		 		<img class = "graph-big" src="{{ url_for('static', filename='images/FCplot.png') }}" >		
 	 			<p class="about-graph"> This is some motherfucking text </p> 
-	 			<p class="about-graph"> Your mean {{mean_fav}}</p> 
-	 			<p class="about-graph"> Your best tweet {{max_fav}} </p>
+	 			<p class="about-graph"> Your mean is{{mean_fav}}FAV</p> 
+	 			<p class="about-graph"> Your best tweet has accounted for {{max_fav}}FAV </p>
 	 			<p class="top tweet"> This is your best tweet mtfkr {{text_fav}} </p>
 	 		</div>
        </div>
