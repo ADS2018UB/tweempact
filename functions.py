@@ -4,6 +4,18 @@ import tweepy
 import time
 import os
 
+def get_TT():
+    TT = []
+    auth = tweepy.OAuthHandler(os.environ['consumer_key'], os.environ['consumer_secret'])
+    auth.set_access_token(os.environ['access_key'],os.environ['access_secret'])
+    api = tweepy.API(auth)
+    results = api.trends_place(23424950)
+    for location in results:
+        for trend in location["trends"]:
+            TT.append(trend["name"])
+    return TT
+
+
 def get_10tweets(username, n_tweets = 10, dash = False):
       
     #Authentication
