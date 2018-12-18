@@ -1,26 +1,42 @@
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
-    
-    app = dash.Dash()
-    
-    app.layout = html.Div(children=[
-        html.H1(children='Hello Dash'),
-    
-        html.Div(children='''
-            Dash: A web application framework for Python.
-        '''),
-    
-        dcc.Graph(
-            id='example-graph',
-            figure={
-                'data': [
-                    {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
-                    {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
-                ],
-                'layout': {
-                    'title': 'Dash Data Visualization'
-                }
-            }
-        )
-    ])
+{% extends 'base.html' %}
+
+{% from 'prediction/common.html' import edit_field %}
+
+{% block title %}Main Page{% endblock title %}
+
+{% block main %}
+
+<div class = "row50">
+	<div class = "column50">
+		<div class = "content1">
+			<div class = "content1 title">
+				<h2 class="about-us">Title 1</h2>
+			</div>
+		 	<div class="body1 about-us">
+		 		<img class = "graph" src="{{ url_for('static', filename='images/graph1.png') }}" >		
+	 			<p class="about-graph"> This is some motherfucking text </p> 
+	 			<p class="about-graph"> Your mean {{mean_rt}}</p> 
+	 			<p class="about-graph"> Your best tweet {{max_rt}} </p> 
+	 			<p class="top tweet"> This is your best tweet mtfkr {{text_rt} </p>
+	 		</div>
+		 		
+		 		
+	<div class = "column50">
+		<div class = "content1">
+			<div class = "content1 title">
+				<h2 class="about-us">Title 2</h2>
+			</div>
+		 	<div class="body1 about-us">
+		 		<img class = "graph" src="{{ url_for('static', filename='images/graph2.png') }}" >		
+	 			<p class="about-graph"> This is some motherfucking text </p> 
+	 			<p class="about-graph"> Your mean {{mean_fav}}</p> 
+	 			<p class="about-graph"> Your best tweet {{max_fav}} </p>
+	 			<p class="top tweet"> This is your best tweet mtfkr {{text_fav}} </p>
+	 		</div>
+       </div>
+    </div>
+</div>
+
+
+
+{% endblock main %}

@@ -96,8 +96,26 @@ def prediction_made(text):
 @login_required
 def historic():
 
-
-    return render_template('dashboard/trial.html')
+    df = pd.DataFrame()
+    df = get_10tweets(current_user.username,dash = True)
+    
+    #maximum rt
+    m_val = df['retweet_count'].max()
+    #maximum fav
+    m_val2 = df['favorite_count'].max()
+    #some slices
+    df_m = df.loc[df['retweet_count'] == m_val]
+    df_m2 = df.loc[df['favorite_count'] == m_val2]
+    #the means
+    mean_rt = df['retweet_count'].mean()
+    mean_fav = df['favorite_count'].mean()
+    #the text of the maxs
+    text_rt = df_m['text'].any()
+    text_fav = df_m2['text'].any()
+    
+    #here we need to do the graph also
+    return render_template('dashboard/trial.html',max_rt = m_val,max_fav = m_val2, mean_rt = mean_rt,
+                           mean_fav = mean_fav, text_rt = text_rt, text_fav = text_fav)
 
 app.config['SECRET_KEY'] = 'esydM2ANhdcoKwdVa0jWvEsbPFuQpMjg' # Create your own.
 app.config['SESSION_PROTECTION'] = 'strong'
