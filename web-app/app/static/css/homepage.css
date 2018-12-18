@@ -150,7 +150,7 @@ a.get-started {
 }
 
 #text {
-	width: 60%;
+	min-width: 90%;
 	margin: auto;
 	height: 220px;
 	padding: 5px;
@@ -173,27 +173,44 @@ a.get-started {
 }
 
 .right {
-	width: 50%;
+	width: 45%;
+	float: right;
 }
 
 .left {
-	width: 50%;
+	width: 55%;
+}
+
+.left2 {
+	margin-left: 30%;
 }
 
 .filled {
 	background-color: white;
 	width: 40%;
 	text-align: center;
+	border-style: solid;
+	max-width: 50%;
+	overflow: hidden;
+	float: left;
+	margin-left: 10%;
+}
+
+.ab {
+	min-width: 22%;
 }
 
 h4.trend {
 	background-color: white;
+	color: red;
+	font-size: 22px;
 }
 
 a.trending-topics {
 	font-weight: 900;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-	margin: 2px;
+	padding: 10px;
+	display: block;
 }
 
 .row:after {
