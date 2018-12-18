@@ -168,6 +168,19 @@ a.get-started {
 	font-weight: bold;
 }
 
+.trending-topics {
+    margin-top: 10px;
+    text-align: left;
+    color: black;
+    font-weight: bold;
+    
+}
+h4.trend{
+    color: rgb(22,222,255);
+    padding: 5px;
+}
+
+
 .column{
 	float: left;
 	width: 33.33%;
