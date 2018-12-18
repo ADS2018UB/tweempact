@@ -3,6 +3,9 @@ import numpy as np
 import tweepy
 import time
 import os
+import matplotlib.dates as mdates
+import datetime
+import matplotlib.pyplot as plt
 
 def get_TT():
     TT = []
@@ -71,3 +74,32 @@ def get_10tweets(username, n_tweets = 10, dash = False):
         CA_l = [time.strftime('%Y-%m-%d %H:%M:%S', time.strptime(CA[i],'%a %b %d %H:%M:%S +0000 %Y'))for i in range(0,len(CA))]
         t1["created_at"] = CA_l
         return t1
+    
+def get_plot_images(username):
+    
+    out = get_10tweets(username, 10, True) # funció de l'Albert
+    data = out["created_at"]
+    FC = out['favorite_count']
+    RT = out['retweet_count']
+    data = [datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S') for date in data]
+    FC = [int(fc) for fc in FC]
+    RT = [int(rt) for rt in RT]
+    
+    plt.figure(figsize=(10,7))
+    plt.plot(data, FC, "b")
+    plt.plot(data, FC, "oc")
+    cur_axes = plt.gca()
+    cur_axes.xaxis.set_major_formatter(mdates.DateFormatter("%d-%b"))
+    plt.ylabel('Favorite Count')
+    plt.annotate("hola", (3,4), (3.1,4.1))
+    plt.savefig('FCplot.png')
+    
+    plt.figure(figsize=(10,7))
+    plt.plot(data, RT, "b")
+    plt.plot(data, RT, "oc")
+    cur_axes = plt.gca()
+    cur_axes.xaxis.set_major_formatter(mdates.DateFormatter("%d-%b"))
+    plt.ylabel('Favorite Count')
+    plt.annotate("hola", (3,4), (3.1,4.1))
+    plt.savefig('RTplot.png')
+    return

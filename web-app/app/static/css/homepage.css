@@ -551,3 +551,10 @@ h2.about-us {
 .list {
 	margin-top: 27px;
 }
+
+.graph-big {
+    height: 60%;
+	width: 80%;
+	display: block;
+	margin: 7px auto 7px auto;
+    }

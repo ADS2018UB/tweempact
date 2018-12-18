@@ -7,3 +7,5 @@ tweepy
 gunicorn
 pandas
 numpy
+matplotlib
+datetime
