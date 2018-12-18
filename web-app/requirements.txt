@@ -10,3 +10,5 @@ Dash-Renderer
 Dash
 Dash_Core_Components
 Dash_Html_Components
+matplotlib
+datetime

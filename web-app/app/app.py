@@ -215,20 +215,46 @@ def prediction_made(text):
     return render_template('prediction/aftermath.html', RT=RT_mean, FAV=FAV_mean, text=text, RTaa=RT_text, FAVaa=FAV_text,
         rt_bool=rt_bool, fv_bool=fv_bool)
 
-
 @app.route('/evolution')
 @login_required
 def historic():
-    global df, m_val, m_val2, df_m, df_m2, mean_rt, mean_fav
-    df = get_10tweets(current_user.username, dash=True)
+
+    df = pd.DataFrame()
+    df = get_10tweets(current_user.username,dash = True)
+    
+    #maximum rt
     m_val = df['retweet_count'].max()
+    #maximum fav
     m_val2 = df['favorite_count'].max()
+    #some slices
     df_m = df.loc[df['retweet_count'] == m_val]
     df_m2 = df.loc[df['favorite_count'] == m_val2]
+    #the means
     mean_rt = df['retweet_count'].mean()
     mean_fav = df['favorite_count'].mean()
+    #the text of the maxs
+    text_rt = df_m['text'].any()
+    text_fav = df_m2['text'].any()
+    
+    #here we need to do the graph also
+    #get_plot_images(current_user.username)
+    
+    return render_template('dashboard/trial.html',max_rt = m_val,max_fav = m_val2, mean_rt = mean_rt,
+                           mean_fav = mean_fav, text_rt = text_rt, text_fav = text_fav)
+    
+#@app.route('/evolution')
+#@login_required
+#def historic():
+ #   global df, m_val, m_val2, df_m, df_m2, mean_rt, mean_fav
+  #  df = get_10tweets(current_user.username, dash=True)
+  #  m_val = df['retweet_count'].max()
+   # m_val2 = df['favorite_count'].max()
+    #df_m = df.loc[df['retweet_count'] == m_val]
+    #df_m2 = df.loc[df['favorite_count'] == m_val2]
+    #mean_rt = df['retweet_count'].mean()
+    #mean_fav = df['favorite_count'].mean()
 
-    return redirect('/dash')
+    #return redirect('/dash')
 
 
 app.config['SECRET_KEY'] = 'esydM2ANhdcoKwdVa0jWvEsbPFuQpMjg'  # Create your own.
