@@ -161,7 +161,7 @@ a.get-started {
 
 #predict-button {
 	width: 12%;
-	margin-left: 46%;
+	margin-left: 43%;
 	padding: 2px;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	margin-top: 8px;
@@ -190,8 +190,10 @@ h4.trend {
 	background-color: white;
 }
 
-p.trending-topics {
+a.trending-topics {
 	font-weight: 900;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	margin: 2px;
 }
 
 .row:after {
@@ -223,7 +225,8 @@ h2.pred {
 
 .Prediction {
 	background-color: rgb(210,210,210);
-	width: 130px;
+	width: 10%;
+	max-width: 15%;
 	margin: 80px auto auto auto;
 	border-style: double;
 }
