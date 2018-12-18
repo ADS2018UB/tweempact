@@ -120,7 +120,7 @@ def get_plot_images(username):
     cur_axes = plt.gca()
     cur_axes.xaxis.set_major_formatter(mdates.DateFormatter("%d-%b"))
     plt.ylabel('Favorite Count')
-    plt.savefig('/static/images/FCplot.png', transparent=True)
+    plt.savefig('app/static/images/FCplot.png', transparent=True)
     
     plt.figure(figsize=(10,7))
     plt.plot(data, RT, "b")
@@ -128,5 +128,5 @@ def get_plot_images(username):
     cur_axes = plt.gca()
     cur_axes.xaxis.set_major_formatter(mdates.DateFormatter("%d-%b"))
     plt.ylabel('Retweet count')
-    plt.savefig('/static/images/RTplot.png', transparent = True)
+    plt.savefig('app/static/images/RTplot.png', transparent = True)
     return
