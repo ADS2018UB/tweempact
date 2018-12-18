@@ -114,7 +114,7 @@ def historic():
     text_fav = df_m2['text'].any()
     
     #here we need to do the graph also
-    get_plot_images(current_user.username)
+    #get_plot_images(current_user.username)
     
     return render_template('dashboard/trial.html',max_rt = m_val,max_fav = m_val2, mean_rt = mean_rt,
                            mean_fav = mean_fav, text_rt = text_rt, text_fav = text_fav)
