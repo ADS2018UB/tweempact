@@ -124,7 +124,7 @@ def historic():
     text_fav = df_m2['text'].any()
     
     #here we need to do the graph also
-    #get_plot_images(current_user.username)
+    get_plot_images(current_user.username)
     
     return render_template('dashboard/trial.html',max_rt = m_val,max_fav = m_val2, mean_rt = mean_rt,
                            mean_fav = mean_fav, text_rt = text_rt, text_fav = text_fav)
@@ -174,7 +174,7 @@ def login():
     if user : #and User.validate_login(user['password'], form.password.data):  
       user_obj = User(username)#['username'])
       login_user(user_obj)
-      get_plot_images(current_user.username)
+      
       return redirect(url_for('prediction_submit'))
     else:
       error = 'Incorrect twitter username'# or password.'
