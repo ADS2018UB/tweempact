@@ -116,12 +116,11 @@ class segmenta():
     
     def transform(self,y):
         k, z = 0, 0
-        for a, b in [[15,5],
-                     [25,10],
-                     [50,25],
-                     [100,50],
-                     [1000,900],
-                     [10000,4500],
+        for a, b in [[20,5],
+                     [50,10],
+                     [100,25],
+                     [1000,100],
+                     [10000,1000],
                      [50000,10000]]: 
             for i in np.arange(z,a,b):
                 self.intervals[k] = [i,i+b-1]
@@ -174,16 +173,12 @@ def predict(df):
 
     elif FC_class==1: 
         X  = load_model('trained_vect_FC_C1.sav').transform(df_tweet).todense()
-        FC = seg.intervals[load_model('trained_FC_C1_tweet.sav').predict(X)[0]]
-        if (np.mean(FC) > mu_FC + sd_FC*10)[0] or (np.mean(FC) < mu_FC - sd_FC*100)[0]:
-            FC = seg.intervals[k]
+        FC = seg.intervals[int(0.4*load_model('trained_FC_C1_tweet.sav').predict(X)[0] + 0.6*k)]
 
     elif FC_class==2: 
         X  = load_model('trained_vect_FC_C2.sav').transform(df_tweet).todense()
-        FC = seg.intervals[load_model('trained_FC_C2_tweet.sav').predict(X)[0]]
-        if (np.mean(FC) > mu_FC + sd_FC*100)[0] or (np.mean(FC) < mu_FC - sd_FC*100)[0]:
-            FC = seg.intervals[k]
-            
+        FC = seg.intervals[int(0.2*load_model('trained_FC_C2_tweet.sav').predict(X)[0] + 0.8*k)]
+    
     ### RT
     mu_RT = df['RT_l10']
     sd_RT = df['sd_RT']
@@ -196,14 +191,14 @@ def predict(df):
 
     elif RT_class==1: 
         X  = load_model('trained_vect_RT_C1.sav').transform(df_tweet).todense()
-        RT = seg.intervals[load_model('trained_RT_C1_tweet.sav').predict(X)[0]]
-        if (np.mean(RT) > mu_RT + sd_RT*100)[0] or (np.mean(RT) < mu_RT - sd_RT*100)[0]:
-            RT = seg.intervals[k]
+        RT = seg.intervals[int(0.4*load_model('trained_RT_C1_tweet.sav').predict(X)[0] + 0.6*k)]
 
     elif FC_class==2: 
         X  = load_model('trained_vect_RT_C2.sav').transform(df_tweet).todense()
-        RT = seg.intervals[load_model('trained_RT_C2_tweet.sav').predict(X)[0]]
-        if (np.mean(RT) > mu_RT + sd_RT*100)[0] or (np.mean(RT) < mu_RT - sd_RT*100)[0]:
-            RT = seg.intervals[k]
+        RT = seg.intervals[int(0.2*load_model('trained_RT_C2_tweet.sav').predict(X)[0] + 0.8*k)]
+        
+    # apaño chapuzero a manija
+    #RT = int((RT[0]+RT[1])/2 + random.random()*sd_RT[0])
+    #FC = int((FC[0]+FC[1])/2 + random.random()*sd_FC[0])
             
     return FC, RT
