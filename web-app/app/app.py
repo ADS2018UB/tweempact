@@ -14,12 +14,31 @@ from flask_login import login_required
 from app.models import User
 from app.forms import PredictionForm, LoginForm
 import tweepy
-from app.functions import get_10tweets , get_TT, get_plot_images
+from app.functions import *
 import plotly.graph_objs as go
 import pandas as pd
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+import time
+
+# Classifiers importation
+from sklearn.metrics import recall_score
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC, LinearSVC, NuSVC
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+from sklearn import neural_network
+from sklearn.naive_bayes import BernoulliNB
+
+# Others
+import seaborn as sns
+from sklearn import linear_model, metrics, model_selection
+from sklearn.preprocessing import StandardScaler
+from sklearn.externals import joblib
 
 # from werkzeug.wsgi import DispatcherMiddleware
 
@@ -202,6 +221,9 @@ def prediction_made(text):
     df = pd.DataFrame()
     df = get_10tweets(current_user.username)
 
+    info_user = prepare_prediction(current_user.username, text)
+    FC_pred, RT_pred = predict(info_user)
+
     RT_mean = df["RT_l10"][0]
     FAV_mean = df["FC_l10"][0]
 
@@ -219,7 +241,7 @@ def prediction_made(text):
         # text = request.args.get('text')
     # some response showing the number of RT/FAVS
     return render_template('prediction/aftermath.html', RT=RT_mean, FAV=FAV_mean, text=text, RTaa=RT_text, FAVaa=FAV_text,
-        rt_bool=rt_bool, fv_bool=fv_bool)
+        rt_bool=rt_bool, fv_bool=fv_bool, FC_pred=FC_pred, RT_pred=RT_pred)
 
 @app.route('/evolution')
 @login_required
