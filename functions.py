@@ -193,7 +193,7 @@ def predict(df):
         X  = load_model('trained_vect_RT_C1.sav').transform(df_tweet).todense()
         RT = seg.intervals[int(0.4*load_model('trained_RT_C1_tweet.sav').predict(X)[0] + 0.6*k)]
 
-    elif FC_class==2: 
+    elif RT_class==2: 
         X  = load_model('trained_vect_RT_C2.sav').transform(df_tweet).todense()
         RT = seg.intervals[int(0.2*load_model('trained_RT_C2_tweet.sav').predict(X)[0] + 0.8*k)]
         
