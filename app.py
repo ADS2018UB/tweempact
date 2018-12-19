@@ -43,14 +43,20 @@ def get_info():
 @app.route('/prediction', methods=['GET', 'POST'])
 @login_required
 def prediction_submit():
-  """Provide HTML form to submit a prediction."""
-  Trending = get_TT()
-  form = PredictionForm(request.form)
-  if request.method == 'POST' and form.validate():
-      #whatever we do with text etc
-      text = form.text.data
-      return redirect(url_for('prediction_made',text=text))
-  return render_template('prediction/submit.html', form=form , TT = Trending)
+    """Provide HTML form to submit a prediction."""
+    Trending = get_TT()
+    form = PredictionForm(request.form)
+    if request.method == 'POST' and form.validate():
+        # whatever we do with text etc
+        text = form.text.data
+        return redirect(url_for('prediction_made', text=text))
+    TT_nohas = []
+    for i in range(0,10):
+        if("#" in Trending[i]):
+           TT_nohas.append(Trending[i].strip('#'))
+        else:
+            TT_nohas.append(Trending[i])
+    return render_template('prediction/submit.html', form=form, TT = Trending, TTno = TT_nohas)
 
 @app.route('/prediction/aftermath/<text>',methods = ['GET','POST'])
 @login_required
