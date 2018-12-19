@@ -7,11 +7,11 @@
 	{% if rt_bool %}
 	<dialog open class="GJ">{{RTaa}}<img src="{{ url_for('static', filename='images/thumbs_up.png') }}" class = "thumbs-up"></dialog>
 	{% endif %}
-	<h2 class = "pred" id="pred2"><img src="{{ url_for('static', filename='images/ReT.png') }}" class="RT">{{RT}}</h2>
+	<h2 class = "pred" id="pred2"><img src="{{ url_for('static', filename='images/ReT.png') }}" class="RT">{{RT_pred}}</h2>
 	{% if fv_bool %}
 	<dialog open>{{FAVaa}}<img src="{{ url_for('static', filename='images/thumbs_up.png') }}" class = "thumbs-up"></dialog>
 	{% endif %}
-	<h2 class = "pred"><img src="{{ url_for('static', filename='images/Like.png') }}" class="L">{{FAV}}</h2>
+	<h2 class = "pred"><img src="{{ url_for('static', filename='images/Like.png') }}" class="L">{{FAV_pred}}</h2>
 </div>
 <div>
 	<div class="predicted-tweet">

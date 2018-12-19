@@ -14,7 +14,7 @@ from flask_login import login_required
 from models import User
 from forms import PredictionForm,LoginForm
 import tweepy
-from functions import get_10tweets,get_TT, get_plot_images
+from functions import get_10tweets,get_TT, get_plot_images,prepare_prediction,predict
 import pandas as pd
 import re 
 #import plotly.graph_objs as go
@@ -59,6 +59,9 @@ def prediction_made(text):
     df = pd.DataFrame()
     df = get_10tweets(current_user.username)
     
+    info_user = prepare_prediction(current_user.username, text)
+    FC_pred, RT_pred = predict(info_user)
+    
     RT_mean = df["RT_l10"][0]
     FAV_mean = df["FC_l10"][0]
     
@@ -88,7 +91,8 @@ def prediction_made(text):
     # text = request.args.get('text')
     # some response showing the number of RT/FAVS
     return render_template('prediction/aftermath.html', RT=RT_mean, FAV=FAV_mean, text=text, RTaa=RT_text, 
-                           FAVaa=FAV_text,rt_bool=rt_bool, fv_bool=fv_bool, has = has,nohas = no_has)
+                           FAVaa=FAV_text,rt_bool=rt_bool, fv_bool=fv_bool,FC_pred=FC_pred, RT_pred=RT_pred,
+                           has = has,nohas = no_has)
 
 
 

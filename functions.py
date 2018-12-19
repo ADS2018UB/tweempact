@@ -7,6 +7,9 @@ import matplotlib.dates as mdates
 import datetime
 import matplotlib.pyplot as plt
 
+from sklearn.externals import joblib
+
+
 def get_TT():
     TT = []
     auth = tweepy.OAuthHandler(os.environ['consumer_key'], os.environ['consumer_secret'])
@@ -101,3 +104,105 @@ def get_plot_images(username):
     plt.ylabel('Retweet count')
     plt.savefig('static/images/RTplot.png', transparent = True)
     return
+
+def load_model(filename):
+    return joblib.load("models/"+filename)
+
+class segmenta():
+    
+    def __init__(self):
+        self.intervals = {}
+    
+    def transform(self,y):
+        k, z = 0, 0
+        for a, b in [[15,5],
+                     [25,10],
+                     [50,25],
+                     [100,50],
+                     [1000,900],
+                     [10000,4500],
+                     [50000,10000]]: 
+            for i in np.arange(z,a,b):
+                self.intervals[k] = [i,i+b-1]
+                k+=1
+            z = a
+        self.intervals[k] = [50000,99999999]
+
+        for j in self.intervals:
+            c = self.intervals[j]
+            if (y>=c[0]) & (y<=c[1]):
+                C = j
+
+        return C
+
+def prepare_prediction(username, text):
+    cols = ['Tweet','RT_l10','sd_RT','FC_l10','sd_FC','friends_count','followers_count']
+    file = pd.DataFrame(columns=cols)
+    for col in cols:
+        file[col]=np.zeros(1)
+    
+    out = get_10tweets(username, 10, False)
+    j_user = out['j_user'][0]
+    for col in cols[5:7]:
+        file[col] = int(j_user[col])
+    file['Tweet'] = text
+    file['RT_l10'] = out['RT_l10'][0]
+    file['sd_RT'] = out['sd_RT'][0]
+    file['FC_l10'] = out['FC_l10'][0]
+    file['sd_FC'] = out['sd_FC'][0]
+    
+    return file
+
+def predict(df):
+    # predict user type:
+    df_author = df[['RT_l10', 'sd_RT', 'FC_l10', 'sd_FC', 'friends_count', 'followers_count']]
+    FC_class  = load_model('trained_FC_class.sav').predict(df_author)
+    RT_class  = load_model('trained_RT_class.sav').predict(df_author)
+    
+    df_tweet = df['Tweet']
+
+    ### FC
+    mu_FC = df['FC_l10']
+    sd_FC = df['sd_FC']
+
+    seg = segmenta()
+    k = seg.transform(int(mu_FC))
+
+    if FC_class==0:
+        FC = seg.intervals[k]
+
+    elif FC_class==1: 
+        X  = load_model('trained_vect_FC_C1.sav').transform(df_tweet).todense()
+        FC = seg.intervals[load_model('trained_FC_C1_tweet.sav').predict(X)[0]]
+        if (np.mean(FC) > mu_FC + sd_FC*10)[0] or (np.mean(FC) < mu_FC - sd_FC*100)[0]:
+            FC = seg.intervals[k]
+
+    elif FC_class==2: 
+        X  = load_model('trained_vect_FC_C2.sav').transform(df_tweet).todense()
+        FC = seg.intervals[load_model('trained_FC_C2_tweet.sav').predict(X)[0]]
+        if (np.mean(FC) > mu_FC + sd_FC*100)[0] or (np.mean(FC) < mu_FC - sd_FC*100)[0]:
+            FC = seg.intervals[k]
+            
+    ### RT
+    mu_RT = df['RT_l10']
+    sd_RT = df['sd_RT']
+
+    seg = segmenta()
+    k = seg.transform(int(mu_RT))
+
+    if RT_class==0:
+        RT = seg.intervals[k]
+
+    elif RT_class==1: 
+        X  = load_model('trained_vect_RT_C1.sav').transform(df_tweet).todense()
+        RT = seg.intervals[load_model('trained_RT_C1_tweet.sav').predict(X)[0]]
+        if (np.mean(RT) > mu_RT + sd_RT*100)[0] or (np.mean(RT) < mu_RT - sd_RT*100)[0]:
+            RT = seg.intervals[k]
+
+    elif FC_class==2: 
+        X  = load_model('trained_vect_RT_C2.sav').transform(df_tweet).todense()
+        RT = seg.intervals[load_model('trained_RT_C2_tweet.sav').predict(X)[0]]
+        if (np.mean(RT) > mu_RT + sd_RT*100)[0] or (np.mean(RT) < mu_RT - sd_RT*100)[0]:
+            RT = seg.intervals[k]
+            
+    return FC, RT
