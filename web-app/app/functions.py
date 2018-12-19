@@ -127,6 +127,7 @@ def get_plot_images(username):
     plt.plot(data, RT, "oc")
     cur_axes = plt.gca()
     cur_axes.xaxis.set_major_formatter(mdates.DateFormatter("%d-%b"))
+    cur_axes.set_facecolor("b")
     plt.ylabel('Retweet count')
     plt.savefig('app/static/images/RTplot.png', transparent = True)
     return

@@ -12,10 +12,20 @@
 			</div>
 		 	<div class="body1 about-us">
 		 		<img class = "graph-big" src="{{ url_for('static', filename='images/RTplot.png') }}" >		
-	 			<p class="about-graph"> This is some motherfucking text </p> 
 	 			<p class="about-graph"> Your mean is {{mean_rt}}RT</p> 
-	 			<p class="about-graph"> Your best tweet has accounted for {{max_rt}}RT </p> 
-	 			<p class="top tweet"> This is your best tweet mtfkr {{text_rt}} </p>
+	 			<div>
+	 				<p class="top tweet"> Your most retweeted tweet </p>
+	 				<div class="row20">
+	 					<div class="col levo">
+	 						<div class = "tweet evol">
+	 							<p class="tweet"> {{text_rt}}</p>
+	 						</div>
+	 					</div>
+	 					<div class = "col revo">
+	 						<p class="number"> {{max_rt}} <img src="{{ url_for('static', filename='images/ReT.png') }}" class="RT"></p>
+	 					</div>
+	 				</div>
+	 			</div>
 	 		</div>
         </div>
     </div>
@@ -30,7 +40,7 @@
 	 			<p class="about-graph"> This is some motherfucking text </p> 
 	 			<p class="about-graph"> Your mean is{{mean_fav}}FAV</p> 
 	 			<p class="about-graph"> Your best tweet has accounted for {{max_fav}}FAV </p>
-	 			<p class="top tweet"> This is your best tweet mtfkr {{text_fav}} </p>
+	 			<p class="top tweet"> This is your best tweet {{text_fav}} </p>
 	 		</div>
        </div>
     </div>

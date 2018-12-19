@@ -579,3 +579,42 @@ h2.about-us {
 .new {
 	background-color: white; 
 }
+
+.evol {
+	width: 80%;
+	margin: auto;
+}
+
+.top {
+	text-align: center;
+}
+
+.levo {
+	float: left;
+	width: 70%;
+	text-align: center;
+}
+
+.revo {
+	float: left;
+	width: 30%;
+	text-align: center;
+}
+/*
+
+.row20 {
+	width: 70%;
+	margin: auto;
+}
+.row20:after {
+	content:"";
+	display: table;
+	clear:both;
+}
+
+p.number {
+	text-align: left;
+	width: 40%;
+	max-width: 40%;
+	background-color: red;
+}*/
