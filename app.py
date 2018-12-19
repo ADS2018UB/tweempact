@@ -14,7 +14,7 @@ from flask_login import login_required
 from models import User
 from forms import PredictionForm,LoginForm
 import tweepy
-from functions import get_10tweets,get_TT, get_plot_images
+from functions import get_10tweets,get_TT, get_plot_images,prepare_prediction,predict
 import pandas as pd
 import re 
 #import plotly.graph_objs as go
@@ -43,14 +43,20 @@ def get_info():
 @app.route('/prediction', methods=['GET', 'POST'])
 @login_required
 def prediction_submit():
-  """Provide HTML form to submit a prediction."""
-  Trending = get_TT()
-  form = PredictionForm(request.form)
-  if request.method == 'POST' and form.validate():
-      #whatever we do with text etc
-      text = form.text.data
-      return redirect(url_for('prediction_made',text=text))
-  return render_template('prediction/submit.html', form=form , TT = Trending)
+    """Provide HTML form to submit a prediction."""
+    Trending = get_TT()
+    form = PredictionForm(request.form)
+    if request.method == 'POST' and form.validate():
+        # whatever we do with text etc
+        text = form.text.data
+        return redirect(url_for('prediction_made', text=text))
+    TT_nohas = []
+    for i in range(0,10):
+        if("#" in Trending[i]):
+           TT_nohas.append(Trending[i].strip('#'))
+        else:
+            TT_nohas.append(Trending[i])
+    return render_template('prediction/submit.html', form=form, TT = Trending, TTno = TT_nohas)
 
 @app.route('/prediction/aftermath/<text>',methods = ['GET','POST'])
 @login_required
@@ -58,6 +64,9 @@ def prediction_made(text):
     #It should be a button that send us back to prediction
     df = pd.DataFrame()
     df = get_10tweets(current_user.username)
+    
+    info_user = prepare_prediction(current_user.username, text)
+    FC_pred, RT_pred = predict(info_user)
     
     RT_mean = df["RT_l10"][0]
     FAV_mean = df["FC_l10"][0]
@@ -88,7 +97,8 @@ def prediction_made(text):
     # text = request.args.get('text')
     # some response showing the number of RT/FAVS
     return render_template('prediction/aftermath.html', RT=RT_mean, FAV=FAV_mean, text=text, RTaa=RT_text, 
-                           FAVaa=FAV_text,rt_bool=rt_bool, fv_bool=fv_bool, has = has,nohas = no_has)
+                           FAVaa=FAV_text,rt_bool=rt_bool, fv_bool=fv_bool,FC_pred=FC_pred, RT_pred=RT_pred,
+                           has = has,nohas = no_has)
 
 
 
@@ -114,7 +124,7 @@ def historic():
     text_fav = df_m2['text'].any()
     
     #here we need to do the graph also
-    #get_plot_images(current_user.username)
+    get_plot_images(current_user.username)
     
     return render_template('dashboard/trial.html',max_rt = m_val,max_fav = m_val2, mean_rt = mean_rt,
                            mean_fav = mean_fav, text_rt = text_rt, text_fav = text_fav)
@@ -164,6 +174,7 @@ def login():
     if user : #and User.validate_login(user['password'], form.password.data):  
       user_obj = User(username)#['username'])
       login_user(user_obj)
+      
       return redirect(url_for('prediction_submit'))
     else:
       error = 'Incorrect twitter username'# or password.'

@@ -249,7 +249,7 @@ def historic():
 
     df = pd.DataFrame()
     df = get_10tweets(current_user.username,dash = True)
-    
+    get_plot_images(current_user.username)
     #maximum rt
     m_val = df['retweet_count'].max()
     #maximum fav
@@ -268,7 +268,7 @@ def historic():
     
     
     return render_template('dashboard/trial.html',max_rt = m_val,max_fav = m_val2, mean_rt = mean_rt,
-                           mean_fav = mean_fav, text_rt = text_rt, text_fav = text_fav)
+                           mean_fav = mean_fav, text_rt = text_rt, text_fav = text_fav,trial = "RT")
     
 #@app.route('/evolution')
 #@login_required
@@ -287,6 +287,8 @@ def historic():
 
 app.config['SECRET_KEY'] = 'esydM2ANhdcoKwdVa0jWvEsbPFuQpMjg'  # Create your own.
 app.config['SESSION_PROTECTION'] = 'strong'
+app.config["CACHE_TYPE"] = "null"  
+#cache.init_app(app)
 login_manager = LoginManager()
 login_manager.setup_app(app)
 login_manager.login_view = 'login'
@@ -347,7 +349,7 @@ def login():
         if user:  # and User.validate_login(user['password'], form.password.data):
             user_obj = User(username)  # ['username'])
             login_user(user_obj)
-            get_plot_images(current_user.username)
+            
             return redirect(url_for('prediction_submit'))
         else:
             error = 'Incorrect twitter username'  # or password.'

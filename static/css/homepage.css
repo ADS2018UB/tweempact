@@ -61,12 +61,12 @@ p,h2,strong,ul {
 	text-align: center;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	width: 230px;
-	padding: 15px;
+	padding: 20px;
 	background-color: rgb(213,213,213);
 	border-style: double hidden;
 	border-color: rgb(122,122,122);
 	box-shadow: -2px 0 5px -2px rgb(213,213,213), 2px 0 5px -2px rgb(213,213,213);
-	margin: 90px auto 30px;
+	margin: 70px auto 30px;
 }
 #login-box2 {
 	text-align: center;
@@ -150,8 +150,9 @@ a.get-started {
 }
 
 #text {
-	width: 290px;
-	height: 150px;
+	min-width: 90%;
+	margin: auto;
+	height: 220px;
 	padding: 5px;
 	border-color: black;
 	border-width: 1.5px;
@@ -159,31 +160,64 @@ a.get-started {
 }
 
 #predict-button {
-	width: 16%;
-	margin-left: 42%;
-	margin-right: 42%;
+	width: 12%;
+	margin-left: 43%;
 	padding: 2px;
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
 	margin-top: 8px;
 	font-weight: bold;
 }
 
-.trending-topics {
-    margin-top: 10px;
-    text-align: left;
-    color: black;
-    font-weight: bold;
-    
-}
-h4.trend{
-    color: rgb(22,222,255);
-    padding: 5px;
-}
-
-
 .column{
 	float: left;
-	width: 33.33%;
+}
+
+.right {
+	width: 45%;
+	float: right;
+}
+
+.left {
+	width: 55%;
+}
+
+.left2 {
+	width: 50%;
+}
+
+.left3 {
+	margin-left: 30%;
+}
+.right2 {
+	width: 50%;
+}
+
+.filled {
+	background-color: white;
+	width: 40%;
+	text-align: center;
+	border-style: solid;
+	max-width: 50%;
+	overflow: hidden;
+	float: left;
+	margin-left: 10%;
+}
+
+.ab {
+	min-width: 22%;
+}
+
+h4.trend {
+	background-color: white;
+	color: red;
+	font-size: 22px;
+}
+
+a.trending-topics {
+	font-weight: 900;
+	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
+	padding: 10px;
+	display: block;
 }
 
 .row:after {
@@ -215,7 +249,8 @@ h2.pred {
 
 .Prediction {
 	background-color: rgb(210,210,210);
-	width: 130px;
+	width: 10%;
+	max-width: 15%;
 	margin: 80px auto auto auto;
 	border-style: double;
 }
@@ -382,12 +417,29 @@ i {
 
 .column50 {
 	float: left;
-	width: 40%;
-	margin: 0px 40px;
-	background-color: rgba(148,199,224,0.85);
-	padding: 0 15px;
-	min-height: 520px;
+	width: 50%;
 }
+
+/*.column501 {
+	float: left;
+	width: 40%;
+	margin: 20px 60px 0px 60px;
+	background-color: yellow;
+	background-color: rgb(56,134,204);
+	padding: 4px 15px;
+	height: auto;
+}*/
+
+.content1 {
+	width: 90%;
+	margin: auto;
+	background-color: rgb(56,134,204);
+}
+.content2 {
+	width: 90%;
+	margin: auto; 
+}
+
 
 .row50:after {	
 	content: "";
@@ -395,19 +447,12 @@ i {
 	clear: both;
 }
 
-.column50p {
-	float: left;
-	width: 30%;
-	margin: 11px 37px 22px 37px;
+.small {
 	background-color: #c0deed;
+	width: 62%;
+	margin: 5px auto 20px auto;
+	border-radius: 45px;
 	padding: 10px 2px;
-	border-radius: 35px;
-}
-
-.row50p:after {
-	content: "";
-	display: table;
-	clear: both;
 }
 
 img.star {
@@ -429,32 +474,49 @@ img.graph {
 	margin: auto;
 }
 
-.column3 {
+/*.column3 {
 	float: left;
-	width: 	23%;
-	margin: 2px 5px 10px 5px;
+	width: 	28%;
+	margin: 2px 5px 20px 5px;
 	background-color: #c0deed;
 	padding: 7px 2px;
 	text-align: center;
 	font-size: 16px;
+}*/
+.dia {
+	background-color: #c0deed;
+	padding: 6px 2px;
+	text-align: center;
+	font-size: 16px;
+	width: 80%;
+	margin: auto;
 }
 
-.row3:after {
+.column3 {
+	width: 30%;
+	float: left;
+}
+.column5 {
+	width: 5%;
+	float: left;
+}
+
+.row5:after {
 	content: "";
 	display: table;
 	clear: both;
 }
 
-#learning {
+.learning {
 	font-size: 20px;
-	height: 53.6px;
-	margin:0;
+	font-weight: bold;
+	padding: 0;
 }
 
 div.action-call{
 	text-align: center;
 	width: 320px;
-	margin:auto;
+	margin: 23px auto 5px auto;
 	background: rgb(56,134,204);
 	padding:3px;
 	border-radius: 5px;
@@ -471,7 +533,7 @@ div.action-call:hover {
 
 dialog {
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
-	margin: 0px 0px 0px 60%;
+	margin: 0px 0px 0px 880px;
 	padding: 8px;
 	background: limegreen;	
 	border: 0;
@@ -493,23 +555,19 @@ dialog:after {
 	margin-left: -18px;
 }
 
-.column501 {
-	float: left;
-	width: 40%;
-	margin: 20px 40px 0px 40px;
-	background-color: yellow;
-	background-color: rgb(56,134,204);
-	padding: 4px 15px;
-	height: auto;
-}
-
 h2.about-us {
 	text-align: center;
 	margin: 0px auto;
 	color: black;
 /*	background-image: url("../images/reclutamiento (1).png");
 	background-position: center;*/
-	width: 40%;
+	width: 300px;
+}
+
+.body1 {
+	background-color: rgba(148,199,244,0.85);
+	padding: 10px;
+	min-height: 500px;
 }
 
 #login-ph {
@@ -520,5 +578,77 @@ h2.about-us {
 }
 
 .list {
-	margin-top: 30px;
+	margin-top: 27px;
+}
+
+.graph-big {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+ 
+.graph-big img {
+   	width: 100%;
+    height: 100%;
+    margin: -50px 0 -25px 0;
+}
+
+.new {
+	background-color: white; 
+}
+
+.evol {
+	width: 80%;
+	margin: auto;
+}
+
+h2.evolution {
+	width: 50%;
+	margin: auto;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.top {
+	text-align: center;
+}
+
+.levo {
+	float: left;
+	width: 70%;
+	text-align: center;
+}
+
+.revo {
+	float: left;
+	width: 30%;
+	text-align: center;
+	font-size: 20px;
+}
+
+p.about-graph {
+	text-align: center;
+	border-style: solid;
+	margin: auto;
+	max-width: 40%;
+	border-radius: 5px;
+}
+
+.retweet {
+	background-color: rgb(25, 207, 134);
+}
+
+.likes {
+	background-color: rgb(232,28,79);
+}
+
+strong.average {
+	font-size: 20px;
+}
+
+.barplot {
+	width: 20px;
+	height: 20px;
+	margin-right: 3%;
+	margin-bottom: -1%;
 }
