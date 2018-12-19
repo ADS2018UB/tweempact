@@ -5,14 +5,14 @@
 {% block main %}
 
 <div class = "row50">
-	<div class = "column left">
-		<div class = "content1">
-			<div class = "content1 title">
-				<h2 class="about-us">Title 1</h2>
-			</div>
-		 	<div class="body1 about-us">
-		 		<img class = "graph-big" src="{{ url_for('static', filename='images/RTplot.png') }}" >		
-	 			<p class="about-graph"> Your mean is {{mean_rt}}RT</p> 
+	<div class = "column left2">
+		<div class = "content2 evolution">
+			<h2 class="title evolution">Evolution of your likes</h2>
+		 	<div class="body1 about-us new">
+		 		<div class="graph-big">
+		 			<img class = "graph-big" src="{{ url_for('static', filename='images/RTplot.png') }}" >		
+		 		</div>
+	 			<p class="about-graph retweet"> <img class = "barplot" src="{{ url_for('static', filename='images/barplot.png') }}" ><strong class="average">{{mean_rt}} RT</strong> on average! Wow!</p> 
 	 			<div>
 	 				<p class="top tweet"> Your most retweeted tweet </p>
 	 				<div class="row20">
@@ -30,17 +30,27 @@
         </div>
     </div>
 		 		
-	<div class = "column right">
-		<div class = "content1">
-			<div class = "content1 title">
-				<h2 class="about-us">Title 2</h2>
-			</div>
-		 	<div class="body1 about-us new">
-		 		<img class = "graph-big" src="{{ url_for('static', filename='images/FCplot.png') }}" >		
-	 			<p class="about-graph"> This is some motherfucking text </p> 
-	 			<p class="about-graph"> Your mean is{{mean_fav}}FAV</p> 
-	 			<p class="about-graph"> Your best tweet has accounted for {{max_fav}}FAV </p>
-	 			<p class="top tweet"> This is your best tweet {{text_fav}} </p>
+	<div class = "column right2">
+		<div class = "content2 evolution">
+			<h2 class="title evolution">Evolution of your retweets</h2>
+			<div class="body1 about-us new">
+		 		<div class="graph-big">
+		 			<img class = "graph-big" src="{{ url_for('static', filename='images/FCplot.png') }}" >		
+		 		</div>
+	 			<p class="about-graph likes"> <strong class="average"><img class = "barplot" src="{{ url_for('static', filename='images/barplot.png') }}" >{{mean_fav}} likes</strong> on average! Wow!</p> 
+	 			<div>
+	 				<p class="top tweet"> Your most liked tweet </p>
+	 				<div class="row20">
+	 					<div class="col levo">
+	 						<div class = "tweet evol">
+	 							<p class="tweet"> {{text_fav}}</p>
+	 						</div>
+	 					</div>
+	 					<div class = "col revo">
+	 						<p class="number"> {{max_fav}} <img src="{{ url_for('static', filename='images/Like.png') }}" class="L"></p>
+	 					</div>
+	 				</div>
+	 			</div>
 	 		</div>
        </div>
     </div>

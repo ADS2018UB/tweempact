@@ -136,21 +136,21 @@ def get_plot_images(username):
     RT = [int(rt) for rt in RT]
     
     plt.figure(figsize=(10,7))
-    plt.plot(data, FC, "b")
-    plt.plot(data, FC, "oc")
+    plt.plot(data, FC, color=(232/255,28/255,79/255), linewidth=3)
+    plt.plot(data, FC, "ok")
     cur_axes = plt.gca()
     cur_axes.xaxis.set_major_formatter(mdates.DateFormatter("%d-%b"))
     plt.ylabel('Favorite Count')
     plt.savefig('app/static/images/FCplot.png', transparent=True)
     
     plt.figure(figsize=(10,7))
-    plt.plot(data, RT, "b")
-    plt.plot(data, RT, "oc")
+    plt.plot(data, RT, color=(25/255, 207/255, 134/255), linewidth=3)
+    plt.plot(data, RT, "ok")
     cur_axes = plt.gca()
     cur_axes.xaxis.set_major_formatter(mdates.DateFormatter("%d-%b"))
-    cur_axes.set_facecolor("b")
+    cur_axes.set_facecolor("w")
     plt.ylabel('Retweet count')
-    plt.savefig('app/static/images/RTplot.png', transparent = True)
+    plt.savefig('app/static/images/RTplot.png')
     return
 
 def load_model(filename):
