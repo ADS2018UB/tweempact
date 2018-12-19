@@ -164,6 +164,7 @@ def login():
     if user : #and User.validate_login(user['password'], form.password.data):  
       user_obj = User(username)#['username'])
       login_user(user_obj)
+      get_plot_images(current_user.username)
       return redirect(url_for('prediction_submit'))
     else:
       error = 'Incorrect twitter username'# or password.'

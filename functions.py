@@ -91,15 +91,13 @@ def get_plot_images(username):
     cur_axes = plt.gca()
     cur_axes.xaxis.set_major_formatter(mdates.DateFormatter("%d-%b"))
     plt.ylabel('Favorite Count')
-    plt.annotate("hola", (3,4), (3.1,4.1))
-    plt.savefig('FCplot.png')
+    plt.savefig('static/images/FCplot.png', transparent=True)
     
     plt.figure(figsize=(10,7))
     plt.plot(data, RT, "b")
     plt.plot(data, RT, "oc")
     cur_axes = plt.gca()
     cur_axes.xaxis.set_major_formatter(mdates.DateFormatter("%d-%b"))
-    plt.ylabel('Favorite Count')
-    plt.annotate("hola", (3,4), (3.1,4.1))
-    plt.savefig('RTplot.png')
+    plt.ylabel('Retweet count')
+    plt.savefig('static/images/RTplot.png', transparent = True)
     return

@@ -12,3 +12,5 @@ Dash_Core_Components
 Dash_Html_Components
 matplotlib
 datetime
+sklearn
+seaborn
