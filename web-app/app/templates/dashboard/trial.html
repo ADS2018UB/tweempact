@@ -8,38 +8,15 @@
 	<div class = "column left2">
 		<div class = "content2 evolution">
 			<h2 class="title evolution">Evolution of your likes</h2>
-		 	<div class="body1 about-us new">
-		 		<div class="graph-big">
-		 			<img class = "graph-big" src="{{ url_for('static', filename='images/RTplot.png') }}" >		
-		 		</div>
-	 			<p class="about-graph retweet"> <img class = "barplot" src="{{ url_for('static', filename='images/barplot.png') }}" ><strong class="average">{{mean_rt}} RT</strong> on average! Wow!</p> 
-	 			<div>
-	 				<p class="top tweet"> Your most retweeted tweet </p>
-	 				<div class="row20">
-	 					<div class="col levo">
-	 						<div class = "tweet evol">
-	 							<p class="tweet"> {{text_rt}}</p>
-	 						</div>
-	 					</div>
-	 					<div class = "col revo">
-	 						<p class="number"> {{max_rt}} <img src="{{ url_for('static', filename='images/ReT.png') }}" class="RT"></p>
-	 					</div>
-	 				</div>
-	 			</div>
-	 		</div>
-        </div>
-    </div>
-		 		
-	<div class = "column right2">
-		<div class = "content2 evolution">
-			<h2 class="title evolution">Evolution of your retweets</h2>
 			<div class="body1 about-us new">
 		 		<div class="graph-big">
 		 			<img class = "graph-big" src="{{ url_for('static', filename='images/FCplot.png') }}" >		
 		 		</div>
-	 			<p class="about-graph likes"> <strong class="average"><img class = "barplot" src="{{ url_for('static', filename='images/barplot.png') }}" >{{mean_fav}} likes</strong> on average! Wow!</p> 
-	 			<div>
-	 				<p class="top tweet"> Your most liked tweet </p>
+	 			<p class="about-graph likes"> <strong class="average"><img class = "barplot" src="{{ url_for('static', filename='images/barplot.png') }}" >{{mean_fav}} likes</strong> on average!</p> 
+	 			<div class="feedback">
+	 				<div class="col">	
+	 					<p class="top tweet"> Your most liked tweet <img src="{{ url_for('static', filename='images/thumbs_up.png') }}" class = "thumbs-up"></p>
+	 				</div>
 	 				<div class="row20">
 	 					<div class="col levo">
 	 						<div class = "tweet evol">
@@ -52,10 +29,49 @@
 	 				</div>
 	 			</div>
 	 		</div>
-       </div>
+       </div>		
+    </div>
+		 		
+	<div class = "column right2">
+		<div class = "content2 evolution">
+			<h2 class="title evolution">Evolution of your retweets</h2>
+		 	<div class="body1 about-us new">
+		 		<div class="graph-big">
+		 			<img class = "graph-big" src="{{ url_for('static', filename='images/RTplot.png') }}" >		
+		 		</div>
+	 			<p class="about-graph retweet"> <img class = "barplot" src="{{ url_for('static', filename='images/barplot.png') }}" ><strong class="average">{{mean_rt}} RT</strong> on average!</p> 
+				<div class="feedback">
+	 				<div class="col">	
+	 					<p class="top tweet"> Your most retweeted tweet <img src="{{ url_for('static', filename='images/thumbs_up.png') }}" class = "thumbs-up"></p>
+	 				</div>
+	 				<div class="row20">
+	 					<div class="col levo">
+	 						<div class = "tweet evol">
+	 							<p class="tweet"> {{text_rt}}</p>
+	 						</div>
+	 					</div>
+	 					<div class = "col revo">
+	 						<p class="number"> {{max_rt}} <img src="{{ url_for('static', filename='images/ReT.png') }}" class="RT"></p>
+	 					</div>
+	 				</div>
+	 			</div>	 			
+	 		</div>
+        </div>
     </div>
 </div>
 
 
-
+<!-- <div class="feedback">
+	 				<div class= "col levo"> 
+	 					<p class="top tweet"> Your most retweeted tweet </p>
+	 				</div>
+	 				<div class="row20">
+	 					<div class="col levo">
+ 							<p class="tweet"> {{text_rt}}</p>
+	 					</div>
+	 					<div class = "col revo">
+	 						<p class="number"> {{max_rt}} <img src="{{ url_for('static', filename='images/ReT.png') }}" class="RT"></p>
+	 					</div>
+	 				</div>
+	 			</div> -->
 {% endblock main %}
