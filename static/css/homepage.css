@@ -225,6 +225,11 @@ a.trending-topics {
 	display: table;
 	clear:both;
 }
+.row20:after {
+	content:"";
+	display: table;
+	clear:both;
+}
 
 h2.pred {
 	font-family: Optima,Segoe,"Segoe UI",Candara,Calibri,Arial,sans-serif;
@@ -235,16 +240,18 @@ h2.pred {
 	margin-top: 16px;
 }
 
-.L {
+img.L {
 	width: 20px;
 	height: 18px;
 	margin-right: 3px;
+	margin-bottom: -2px;
 }
 
-.RT {
+img.RT {
 	width: 33px;
 	height: 20px;
 	margin-right: 4px;
+	margin-bottom: -3px;
 }
 
 .Prediction {
@@ -610,26 +617,41 @@ h2.evolution {
 }
 
 .top {
-	text-align: center;
+	padding-left: 20%;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: #c0deed;
 }
+
+.feedback {
+	margin: auto;
+	background-color: rgb(230,230,230);
+	width: 90%;
+}
+
+p.tweet {
+	margin: 5px auto;
+}
+
 
 .levo {
 	float: left;
-	width: 70%;
+	width: 80%;
 	text-align: center;
+	min-height: 85px;
 }
 
 .revo {
 	float: left;
-	width: 30%;
-	text-align: center;
+	text-align: left;
 	font-size: 20px;
 }
 
 p.about-graph {
 	text-align: center;
 	border-style: solid;
-	margin: auto;
+	border-width: 1px;
+	margin: auto auto 10px auto;
 	max-width: 40%;
 	border-radius: 5px;
 }
@@ -651,4 +673,13 @@ strong.average {
 	height: 20px;
 	margin-right: 3%;
 	margin-bottom: -1%;
+}
+
+p.number {
+	border-style: solid;
+	padding: 10px;
+	margin: 10px 0 0 0;
+	border-radius: 10px;
+	background-color: white;
+	font-weight: bold;
 }
