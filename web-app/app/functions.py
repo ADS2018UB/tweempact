@@ -95,7 +95,7 @@ def get_10tweets(username, n_tweets = 10, dash = False):
             doc = tweet._json
             doc['id'] = str(doc['id'])
             
-            if doc not in tweets_10 and not doc['text'].startswith('RT '):
+            if doc not in tweets_10 and not doc['text'].startswith('RT ') and doc["in_reply_to_status_id"] is None:
                 tweets_10.append(doc)
             else:
                 count += 1
@@ -128,10 +128,18 @@ def get_10tweets(username, n_tweets = 10, dash = False):
 def get_plot_images(username):
     
     out = get_10tweets(username, 10, True) # funció de l'Albert
-    data = out["created_at"]
+    
+    dates = out["created_at"]
+
+    data = [datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S') for date in dates]
+    out["dates"] = data
+    data = sorted(data)
+
+    out = out.sort_values(by="dates")
+
     FC = out['favorite_count']
     RT = out['retweet_count']
-    data = [datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S') for date in data]
+
     FC = [int(fc) for fc in FC]
     RT = [int(rt) for rt in RT]
     
